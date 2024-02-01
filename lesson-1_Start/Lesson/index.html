@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .test{
+            color: blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>First JS lesson</h1>
+
+
+    <script>
+
+        // Змінні
+
+        console.log(testVar)
+        console.log(testLet)
+
+        var testVar = 'Hello';
+        let testLet = 'Hello';
+        const testConst = 'Hello'; //const не можна переписати
+        
+
+        // Варіанти виводу резальтату JS
+        console.log('string')
+        console.log(testVar)
+
+        alert('Test')
+
+        // Варіанти вводу результату JS
+        prompt('Test')
+
+        let name = prompt("User Name")
+
+        
+        document.write(`
+        <h2 class="test"> 
+            ${testConst} ${name}
+            </h2>
+        `)
+        console.log(testConst + " " + name + "!")
+
+
+</script>
+</body>
+
+</html>

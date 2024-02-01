@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW1 Task hard lvl</title>
+
+    <style>
+        /* Global styles */
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles END*/
+
+
+        /* Page title */
+
+        .page-title {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .page-title__lvl {
+            color: red;
+        }
+
+        /* Page title END*/
+
+        /* Item */
+
+        .item {
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid;
+            border-radius: 20px;
+            max-width: 400px;
+        }
+
+        /* Item END*/
+    </style>
+
+</head>
+
+<body>
+    <h1 class="page-title">Task <span class="page-title__lvl">hard</span> lvl</h1>
+
+    <div class="wrapper">
+
+        <!-- Circle-radius -->
+        <div class="item circle-radius">
+            <h3>Радіус</h3>
+            <input class="input circle-radius-inp" type="number" placeholder="Ведіть радіус (m)">
+            <button class="circle-radius-btn">Порахувати</button>
+            <div class="circle-radius-result">
+                <h5>Площа кола: <span class="circle-radius-out"></span></h5>
+            </div>
+        </div>
+
+        <script>
+            let circleRes = document.querySelector('.circle-radius-out')
+            let circleRadius = document.querySelector('.circle-radius-inp')
+            let circleButton = document.querySelector('.circle-radius-btn')
+            let pi = 3.14
+
+            circleButton.onclick = () => {
+
+                console.log(circleRadius.value * circleRadius.value * pi)
+
+                circleRes.innerHTML = (+circleRadius.value * +circleRadius.value * pi + " " + "m²")
+            }
+        </script>
+        <!-- Circle-radius END-->
+
+        <!-- Speed -->
+        <div class="item speed">
+            <h3>Відстань</h3>
+            <input class="input distance" type="number" placeholder="Ведіть відстань"><br>
+            <h3>Час</h3>
+            <input class="input time" type="number" placeholder="Ведіть очікуваний час">
+            <button class="speed-btn">Порахувати</button>
+            <div class="speed-result">
+                <h5>Площа кола: <span class="speed-out"></span></h5>
+            </div>
+        </div>
+
+        <script>
+            let speedRes = document.querySelector('.speed-out')
+            let distance = document.querySelector('.distance')
+            let time = document.querySelector('.time')
+            let speedButton = document.querySelector('.speed-btn')
+
+            speedButton.onclick = () => {
+
+                console.log(distance.value / time.value)
+
+                speedRes.innerHTML = (distance.value / time.value + " " + "km/h")
+            }
+        </script>
+
+        <!-- Currency -->
+
+        <div class="item currency">
+            <h3>USD</h3>
+            <input class="input usd" type="number" placeholder="Ведіть сумму $">
+            <button class="currency-btn">Порахувати</button>
+            <p>Курс: <span class="currency-rate"></span></p>
+            <div class="currency-result">
+                <h5>Ви отрамєте: <span class="currency-out"></span></h5>
+            </div>
+        </div>
+
+        <script>
+            let currencyRes = document.querySelector('.currency-out')
+            let usd = document.querySelector('.usd')
+            const eur = 0.92
+            let currencyButton = document.querySelector('.currency-btn')
+            let currencyEuro = document.querySelector('.currency-rate')
+
+            currencyButton.onclick = () => {
+
+                console.log(usd.value * eur)
+
+                currencyEuro.innerHTML = eur
+                currencyRes.innerHTML = (usd.value * eur + " " + "€")
+            }
+        </script>
+
+        <!-- Square END -->
+
+    </div>
+
+
+</body>
+
+</html>

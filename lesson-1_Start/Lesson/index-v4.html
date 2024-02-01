@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .test {
+            color: blue;
+        }
+
+        .card {
+            border: 1px solid;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>First JS lesson</h1>
+
+    <div class="item">
+        <h4>Name</h4>
+        <input class="inp" type="text">
+        <h4>Last Name</h4>
+        <input class="inp2" type="text">
+        <h4>Age</h4>
+        <input class="inp3" type="text">
+        <button class="btn">Start</button>
+        <button class="btn-res">Reset</button>
+    </div>
+
+    <div class="item">
+        <h5>Hello: <span class="out"></span></h5>
+        <h5>Твій вік: <span class="out1"></span></h5>
+    </div>
+
+    <script>
+        // 1. Куди вводимо (input)
+        // 2. Кнопка (button)
+        // 3. Виво результат (div)
+
+        let inp3 = document.querySelector('.inp3')
+        let inp2 = document.querySelector('.inp2')
+        let inp = document.querySelector('.inp')
+        let btn = document.querySelector('.btn')
+        let out = document.querySelector('.out')
+        let out1 = document.querySelector('.out1')
+
+        // out.innerText = "asdasdasdsa"
+        // out.innerHTML = "<h1>Hello</h1>"
+
+
+        btn.onclick = () => {
+            // console.log(inp.value)
+
+            // out.innerHTML = `
+            // <div class="card">
+            //     <img src="${inp2.value}" width="100">
+            //     <h4>${inp.value}</h4>
+            // </div>
+            // `
+            out.innerHTML = `${inp.value} ${inp2.value}`
+            out1.innerHTML = inp3.value
+            
+        }
+
+        // btn-res.onclick = () => {
+        //     out.innerHTML = " ";
+        // }
+
+    </script>
+</body>
+
+</html>
