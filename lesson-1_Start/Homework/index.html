@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Global styles */
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles END*/
+
+
+        /* Page title */
+
+        .page-title {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .page-title__lvl {
+            color: red;
+        }
+
+        /* Page title END*/
+
+        /* Item */
+
+        .item {
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid;
+            border-radius: 20px;
+            max-width: 400px;
+        }
+
+        /* Item END*/
+    </style>
+
+</head>
+
+<body>
+
+    <body>
+        <h1 class="page-title">Task <span class="page-title__lvl">hard</span> lvl</h1>
+
+        <div class="wrapper">
+
+            <div class="currency-item-2 item">
+                <h4 class="circle-itemtitle title">Введіть сумму</h4>
+                <select class="currency">
+                    <option class="currency-usd">USD</option>
+                    <option class="currency-uah">UAH</option>
+                </select>
+                <input class="inp4" type="number">
+                <button class="btn4">Порахувати</button>
+                <p class="currency-itemrate">Курс: <span class="res4-1"></span></p>
+                <div class="result">Значення: <span class="res4-2"></span></div>
+            </div>
+
+            <script>
+                let inp4 = document.querySelector('.inp4')
+                let btn4 = document.querySelector('.btn4')
+                let res4_1 = document.querySelector('.res4-1')
+                let res4_2 = document.querySelector('.res4-2')
+                let currency = document.querySelector('.currency')
+                let currencyUSD = document.querySelector('.currency-usd')
+                let currencyUAH = document.querySelector('.currency-uah')
+                const rateUSD = 0.92
+                const rateUAH = 0.024
+
+                btn4.onclick = () => {
+                    if (currency = currencyUSD) {
+                        res4_1.innerHTML = rateUSD
+                        res4_2.innerHTML = inp4.value * rateUSD + " €"
+                    }
+                    if (currency = currencyUAH) {
+                        res4_1.innerHTML = rateUAH
+                        res4_2.innerHTML = inp4.value * rateUAH + " €"
+                    }
+                } 
+            </script>
+
+        </div>
+
+    </body>
+
+</html>

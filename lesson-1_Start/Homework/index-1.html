@@ -133,7 +133,55 @@
             }
         </script>
 
-        <!-- Square END -->
+        <!-- Сurrency END -->
+
+        <!-- Currency Select-->
+
+        <div class="item currency-select">
+            <h4 class="currency-select-title title">Введіть сумму</h4>
+            <select class="currency-select">
+                <option class="currency-usd">USD</option>
+                <option class="currency-zlt">ZLT</option>
+                <option class="currency-uah">UAH</option>
+            </select>
+            <input class="currency-select-inp" type="number">
+            <button class="currency-select-btn">Порахувати</button>
+            <p class="currency-select-rate">Курс: <span class="currency-out-1"></span></p>
+            <div class="result">Значення: <span class="currency-out-2"></span></div>
+        </div>
+
+        <script>
+            let countCurrency = document.querySelector('.currency-select-inp')
+            let currencySelectBtn = document.querySelector('.currency-select-btn')
+            let currencySelectRes1 = document.querySelector('.currency-out-1')
+            let currencySelectRes2 = document.querySelector('.currency-out-2')
+            let selectedCurrency = document.querySelector('.currency-select')
+            let currencyUSD = document.querySelector('.currency-usd')
+            let currencyUAH = document.querySelector('.currency-uah')
+            let currencyZLT = document.querySelector('.currency-zlt')
+            const rateUSD = 0.92
+            const rateZLT = 0.23
+            const rateUAH = 0.024
+
+            currencySelectBtn.onclick = () => {
+
+                if (selectedCurrency = currencyUSD) {
+                    currencySelectRes1.innerHTML = rateUSD
+                    currencySelectRes2.innerHTML = countCurrency.value * rateUSD + " €"
+                }
+                if (selectedCurrency = currencyZLT) {
+                    currencySelectRes1.innerHTML = rateZLT
+                    currencySelectRes2.innerHTML = countCurrency.value * rateZLT + " €"
+                }
+                if (selectedCurrency = currencyUAH) {
+                    currencySelectRes1.innerHTML = rateUAH
+                    currencySelectRes2.innerHTML = countCurrency.value * rateUAH + " €"
+                }
+            }
+        </script>
+
+
+        <!-- Currency Select END-->
 
     </div>
 
