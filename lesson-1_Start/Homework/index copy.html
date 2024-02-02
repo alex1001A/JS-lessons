@@ -69,28 +69,27 @@
             </div>
 
             <script>
-                let inp4 = document.querySelector('.inp4').value
+
                 let btn4 = document.querySelector('.btn4')
-                let res4_1 = document.querySelector('.res4-1')
-                let res4_2 = document.querySelector('.res4-2')
-                let currency = document.querySelector('.currency-select').value
-                let currencyUSD = document.querySelector('.currency-usd')
-                let currencyUAH = document.querySelector('.currency-uah')
-                const rateUSD = 0.92
-                const rateUAH = 0.024
+
+                const currencyRates = {
+                USD: 0.92,
+                UAH: 0.024
+            };
 
                 btn4.onclick = () => {
-                    console.log(inp4.value * rateUSD + " €")
-                    
 
-                    if (currency.value == currencyUSD.value) {
-                        res4_1.innerHTML = rateUSD
-                        res4_2.innerHTML = inp4.value * rateUSD + " €"
-                    }
-                    if (currency.value == currencyUAH.value) {
-                        res4_1.innerHTML = rateUAH
-                        res4_2.innerHTML = inp4.value * rateUAH + " €"
-                    }
+                    let countCurrency = document.querySelector('.inp4').value
+                    let currencySelectRate = document.querySelector('.res4-1')
+                    let currencySelectValue = document.querySelector('.res4-2')
+                    let selectedCurrency = document.querySelector('.currency-select').value
+                    console.log(currencyRates[selectedCurrency])
+
+
+                    currencySelectRate.innerHTML = currencyRates[selectedCurrency]
+                    currencySelectValue.innerHTML = countCurrency * currencyRates[selectedCurrency] + " €"
+                    
+                    
                 } 
             </script>
 

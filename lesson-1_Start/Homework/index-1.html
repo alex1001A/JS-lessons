@@ -87,7 +87,7 @@
             <input class="input time" type="number" placeholder="Ведіть очікуваний час">
             <button class="speed-btn">Порахувати</button>
             <div class="speed-result">
-                <h5>Площа кола: <span class="speed-out"></span></h5>
+                <h5>Швидкість: <span class="speed-out"></span></h5>
             </div>
         </div>
 
@@ -101,7 +101,7 @@
 
                 console.log(distance.value / time.value)
 
-                speedRes.innerHTML = (distance.value / time.value + " " + "km/h")
+                speedRes.innerHTML = distance.value / time.value + " " + "km/h"
             }
         </script>
 
@@ -159,13 +159,14 @@
             // const USD = 'USD'
             // const UAH = 'UAH'
             // const ZLT = 'ZLT'
-            // const rateUSD = 0.92
-            // const rateZLT = 0.23
-            // const rateUAH = 0.024
+            const USD = 0.92
+            const ZLT = 0.23
+            const UAH = 0.024
+
             const currencyRates = {
-                USD: 0.92,
-                ZLT: 0.23,
-                UAH: 0.024
+                USD: USD,
+                ZLT: ZLT,
+                UAH: UAH
             };
 
             currencySelectBtn.onclick = () => {
@@ -173,7 +174,7 @@
                 let currencySelectRate = document.querySelector('.currency-out-rate')
                 let currencySelectValue = document.querySelector('.currency-out-value')
                 let selectedCurrency = document.querySelector('.currency-select').value
-                console.log(currencyRates[selectedCurrency])
+                console.log(currencyRates[selectedCurrency], selectedCurrency)
 
                 // if (currencyRates[selectedCurrency]) {
                     currencySelectRate.innerHTML = currencyRates[selectedCurrency];
