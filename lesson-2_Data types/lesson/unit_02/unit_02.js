@@ -213,21 +213,27 @@ document.querySelector('.b-17').onclick = t17;
 
 // Task 18.
 //  По нажатию на кнопку .b-18 выполняется функция t18. Функция получает из .i-18 число в переменную a. Выводит в out-18 результат операции parseFloat(a). Попробуйте ввести значения 5, 33.02, 33.9a, -20.01
+let inp18 = document.querySelector('.i-18').value;
+let out18 = document.querySelector('.out-18');
+let btn18 = document.querySelector('.b-18');
+let aa = inp18;
 
-function t18() {
-
+btn18.onclick = () => {
+    out18.innerHTML = parseFloat(aa)
 }
 
-document.querySelector('.b-18').onclick = t18;
+console.log(parseFloat(aa));
 
 // Task 19.
 // По нажатию кнопки .b-19 функция t19 дожна в out-19 вывести сумму двух отрицательных чисел из input .i-19-1 и .i-19-2. 
+let btn19 = document.querySelector('.b-19')
+let inp19One = document.querySelector('.i-19-1').value
+let inp19Two = document.querySelector('.i-19-2').value
+let out19 = document.querySelector('.out-19')
 
-function t19() {
-
+btn19.onclick = () => {
+    out19.innerHTML = +inp19One + +inp19Two
 }
-
-document.querySelector('.b-19').onclick = t19;
 
 // Task 20
 // При нажатии на кнопку .b-20 в out-20 выводится число - сколько раз была нажата кнопка .b-20;
