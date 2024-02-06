@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <select class="select" name="" id="">
+        <option value="NoN">---</option>
+        <option value="0">Камінь</option>
+        <option value="1">Бумага</option>
+        <option value="2">Ножнеці</option>
+        <option value="3">Колодязь</option>
+    </select>
+    <button class="btn">Start</button>
+    <script>
+        let sel = document.querySelector('.select')
+
+        let btn = document.querySelector('.btn')
+
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 5);
+        }
+
+        btn.onclick = () => {
+            let compNumber = getRandomNumber()
+
+            switch (sel.value) {
+                case '0':
+                    if (compNumber == 0) {
+                        console.log("Камінь vs Камінь = Нічія!!");
+                    } else if (compNumber == 1) {
+                        console.log("Бумага vs Камінь = Програш!!");
+                    }
+                    else {
+                        console.log(compNumber)
+                    }
+                    break;
+                case '1':
+                    console.log("Бумага");
+                    break;
+                case '2':
+                    console.log("Ножнеці");
+                    break;
+                default:
+                    console.log("Не обрано");
+                    break;
+            }
+
+
+            //   if(sel.value == 0) {
+
+            //   } else if (sel.value == 1) {
+
+            //   }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
