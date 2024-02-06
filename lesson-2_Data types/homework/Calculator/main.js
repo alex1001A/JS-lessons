@@ -10,6 +10,9 @@ let six = document.querySelector('.calc__numbers-btn--six');
 let seven = document.querySelector('.calc__numbers-btn--seven');
 let eight = document.querySelector('.calc__numbers-btn--eight');
 let nine = document.querySelector('.calc__numbers-btn--nine');
+let dot = document.querySelector('.calc__numbers-btn--dot');
+
+let C = document.querySelector('.calc__numbers-btn--c');
 let CE = document.querySelector('.calc__numbers-btn--ce');
 
 let plus = document.querySelector('.calc__numbers-btn--plus');
@@ -21,6 +24,17 @@ let res = document.querySelector('.calc__numbers-btn--res');
 CE.onclick = () => {
     IN.value = CE.value;
     console.log(CE.value);
+}
+
+C.onclick = () => {
+    IN.value = C.value;
+    console.log(C.value);
+}
+
+dot.onclick = () => {
+
+    IN.value += dot.value;
+    console.log(dot.value);
 }
 
 zero.onclick = () => {
@@ -89,7 +103,6 @@ plus.onclick = () => {
     console.log(typeof Number(plus.value));
 }
 
-
 minus.onclick = () => {
 
     IN.value += minus.value;
@@ -112,5 +125,4 @@ res.onclick = () => {
     
         IN.value = eval(IN.value);
         console.log(IN.value);
-    
 }
