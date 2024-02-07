@@ -1,67 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
-    <select class="select" name="" id="">
-        <option value="NoN">---</option>
-        <option value="0">Камінь</option>
-        <option value="1">Бумага</option>
-        <option value="2">Ножнеці</option>
-        <option value="3">Колодязь</option>
+  <body>
+    <select class="select">
+      <option value="NoN">---</option>
+      <option value="1">Камінь</option>
+      <option value="2">Ножиці</option>
+      <option value="3">Бумага</option>
     </select>
     <button class="btn">Start</button>
+    <div class="out"></div>
     <script>
-        let sel = document.querySelector('.select')
+      let sel = document.querySelector(".select");
+      let out = document.querySelector(".out");
 
-        let btn = document.querySelector('.btn')
+      let btn = document.querySelector(".btn");
 
-        function getRandomNumber() {
-            return Math.floor(Math.random() * 5);
-        }
+      function getRandomNumber() {
+        // Возвращает случайное число от 0 до 2
+        let randomNumber = Math.floor(Math.random() * 3);
 
-        btn.onclick = () => {
-            let compNumber = getRandomNumber()
+        // Добавляем 1, чтобы получить число от 1 до 3
+        return randomNumber + 1;
+        console.log(Math.floor(Math.random() * 3));
+      }     
 
-            switch (sel.value) {
-                case '0':
-                    if (compNumber == 0) {
-                        console.log("Камінь vs Камінь = Нічія!!");
-                    } else if (compNumber == 1) {
-                        console.log("Бумага vs Камінь = Програш!!");
-                    }
-                    else {
-                        console.log(compNumber)
-                    }
-                    break;
-                case '1':
-                    console.log("Бумага");
-                    break;
-                case '2':
-                    console.log("Ножнеці");
-                    break;
-                default:
-                    console.log("Не обрано");
-                    break;
+      btn.onclick = () => {
+        let compNumber = getRandomNumber();
+
+        switch (sel.value) {
+          case "1":
+            if (compNumber == 1) {
+              console.log("Камінь vs Камінь = Нічія!!");
+              out.innerHTML = 'Нічія!'
+            } else if (compNumber == 2) {
+              console.log("Ножиці vs Камінь = Виграш!!");
+              out.innerHTML = 'Виграш!'
+            } else {
+              console.log("Бумага vs Камінь = Програш!!");
+              out.innerHTML = 'Програш!'
             }
-
-
-            //   if(sel.value == 0) {
-
-            //   } else if (sel.value == 1) {
-
-            //   }
+            break;
+          case "2":
+          if (compNumber == 1) {
+              console.log("Камінь vs Ножиці = Програш!!");
+              out.innerHTML = 'Програш!'
+            } else if (compNumber == 2) {
+              console.log("Ножиці vs Ножиці = Нічия!!");
+              out.innerHTML = 'Нічия!'
+            } else {
+              console.log("Бумага vs Ножиці = Виграш!!");
+              out.innerHTML = 'Виграш!'
+            }
+            break;
+          case "3":
+          if (compNumber == 1) {
+              console.log("Камінь vs Бумага = Виграш!!");
+              out.innerHTML = 'Виграш!'
+            } else if (compNumber == 2) {
+              console.log("Ножиці vs Бумага = Програш!!");
+              out.innerHTML = 'Програш!'
+            } else {
+              console.log("Бумага vs Бумага = Нічия!!");
+              out.innerHTML = 'Нічия!'
+            }
+            break;
+          default:
+            console.log("Не обрано");
+            out.innerHTML = 'Не обрано!'
+            break;
         }
-
-
-
+      };
     </script>
-</body>
-
+  </body>
 </html>
