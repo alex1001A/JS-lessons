@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input class="inp" type="text">
+    <select class="sel">
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="15">15</option>
+    </select>
+    <button class="btn">Start</button>
+
+    <div class="out"></div>
+
+
+    <script>
+        let inp = document.querySelector('.inp')
+        let btn = document.querySelector('.btn')
+        let out = document.querySelector('.out')
+        let sel = document.querySelector('.sel')
+
+        btn.onclick = () => {
+            out.innerHTML = ''
+            if (sel.value == 3) {
+                for (let a = 1; a <= 3; a++) {
+                out.innerHTML += inp.value
+            }
+            } else if (sel.value == 5) {
+                for (let a = 1; a <= 5; a++) {
+                out.innerHTML += inp.value
+            }
+            } else if (sel.value == 15) {
+                for (let a = 1; a <= 15; a++) {
+                out.innerHTML += inp.value
+            }
+            }
+            inp.value = ''
+        }
+    </script>
+</body>
+
+</html>

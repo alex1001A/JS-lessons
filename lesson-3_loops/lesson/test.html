@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>'Sasha', 'Sveta', 'Dima', 'Vlad'</h2>
+    <input class="inp" type="text" placeholder="Search">
+    <button class="btn">Search</button>
+    <button class="btn-1">Show all</button>
+
+    <div class="out"></div>
+    <ul class="out-2">
+
+    </ul>
+
+    <script>
+
+        let inp = document.querySelector('.inp')
+        let btn = document.querySelector('.btn')
+        let btn1 = document.querySelector('.btn-1')
+
+        let out = document.querySelector('.out')
+        let out1 = document.querySelector('.out-1')
+
+        let users = ['Sasha', 'Sveta', 'Dima', 'Vlad']
+
+        btn.onclick = () => {
+            
+            out.innerHTML = ''
+
+            for (let i = 0; i < users.length; i++) {
+                if (users[i] == inp.value) {
+                    out.innerHTML = (users[i]);
+                } else {
+                    out.innerHTML = 'Не має'
+                }
+            }
+
+            inp.value = ''
+        }
+
+        btn1.onclick = () => {
+            for (let i = 0; i < users.length; i++) {
+                out.innerHTML += `<li>${users[i]}</li>`
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
