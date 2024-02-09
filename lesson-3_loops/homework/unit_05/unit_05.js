@@ -141,25 +141,18 @@ document.querySelector('.b-7').onclick = t7;
 // Задача решается с помощью цикла.
 
 function t8() {
+    let inp81 = Number(document.querySelector('.i-81').value);
+    let inp82 = Number(document.querySelector('.i-82').value);
     let out8 = document.querySelector('.out-8');
-    let inp81 = document.querySelector('.i-81').value;
-    let inp82 = document.querySelector('.i-82').value;
 
-    let start = Math.min(inp81, inp82);
-    let end = Math.max(inp81, inp82);
-
-    out8.innerHTML = '_'
-    console.log(Math.min(inp81, inp82));
-    for (let i = start; i <= end; i = i + 1) {
-
-        out8.innerHTML += i + '_'
-
-
+    out8.innerHTML = '';
+    for (let i = inp81; i <= inp82; i = i + 1) {
+        console.log(`${i}_`);
+        out8.innerHTML += `${i}_`;
     }
-    inp81.value = ''
-    inp82.value = ''
 
 }
+
 
 document.querySelector('.b-8').onclick = t8;
 
