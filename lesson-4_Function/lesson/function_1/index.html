@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input class="inp1" type="text">
+    <input class="inp2" type="text">
+    <div class="out"></div>
+    <button class="btn">Add</button>
+
+
+    <script>
+
+        // Функція declaration
+        let btn = document.querySelector('.btn')
+        let inp1 = document.querySelector('.inp1')
+        let inp2 = document.querySelector('.inp2')
+        let out1 = document.querySelector('.out-1')
+
+        // function testSasha(){
+        //     console.log('Test');
+        // }
+
+        // btn.onclick = testSasha() - функція запускається автоматично
+        // btn.onclick = testSasha - функція запускається тільки при КЛІКУ
+        // btn.onclick = testSasha
+
+        // Функція expression
+
+        // let testSasha1 = function(){
+        //     console.log('Test1');
+        // }
+
+        // testSasha1()
+
+        // Функція стрілочна функція
+
+        // let Sasha = () => {
+        //     console.log('Test Sasha');
+        // }
+
+// Example 1
+
+        function consoleLog(a, b) {
+            console.log('a + b =' + (a + b) );
+        }
+
+        btn.onclick = () => {consoleLog(+inp1.value, +inp2.value)}
+
+
+        // Example 2
+
+        function testReturn() {
+            // return 'Sasha'
+            return `<h2>Sasha</h2>`
+        }
+
+        console.log(testReturn());
+        out.innerHTML = testReturn();
+    </script>
+</body>
+
+</html>

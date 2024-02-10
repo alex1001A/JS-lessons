@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input class="inp" type="text">
+    <button class="btn">Add</button>
+<div class="out"></div>
+
+    <script>
+        // let name = document.querySelector('.name')
+        // let inp = document.querySelector('.inp')
+        // let out = document.querySelector('.out')
+
+
+        // function renderTitle(name, className) {
+        //     return `
+        //     <h2 class="title ${className}">${name}</h2>
+        //     `
+        // }
+        
+        // out.innerHTML += renderTitle('Test', 'red')
+        // out.innerHTML += renderTitle('Hi', 'blue')
+
+        // for (let i = 0; i <= 10; i++) {
+        //     out.innerHTML += renderTitle(sasha)
+            
+        // }
+
+
+        // Ex
+
+        let name = document.querySelector('.name')
+        let inp = document.querySelector('.inp')
+        let out = document.querySelector('.out')
+
+
+        function renderCard(name, className, city, age) {
+            return `
+            <h2 class="${className}">Hi, i am ${name}</h2>
+            <h3 class="${className}">I am from ${city}</h3>
+            <h3 class="${className}">old ${2024 - age}</h3>
+            `
+        }
+        
+        // out.innerHTML += renderTitle('Test', 'red')
+        
+
+        for (let i = 0; i <= 10; i++) {
+            out.innerHTML += renderCard('Sasha', 'red', 'Odesa', 1995)
+            
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+<div class="out"></div>
+
+
+
+    <script>
+
+
+        function renderName(name, color) {
+            let title = `<h2 style="color:${color}">${name}</h2>`
+
+            return title
+
+        }
+
+        let name = ['Sasta', 'Sasha 1', 'Sasha 2', 'Sasha 3', 'Sasha 4']
+        let color = 'red'
+        let out = document.querySelector('.out')
+
+        for (let i = 0; i < name.length; i++) {
+
+            if (i == 3) {
+                out.innerHTML += renderName(name[i], color)
+                continue;
+            }
+            out.innerHTML += renderName(name[i], 'black')
+        }
+
+    </script>
+</body>
+
+</html>

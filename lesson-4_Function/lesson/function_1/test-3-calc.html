@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <input class="inp1" type="text" name="" id="">
+    <select class="sel" name="" id="">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">x</option>
+    </select>
+    <input class="inp2" type="text" name="" id="">
+    <button class="btn">Add</button>
+
+
+    <div class="out"></div>
+
+
+
+    <script>
+
+        let inp1 = document.querySelector('.inp1')
+        let inp2 = document.querySelector('.inp2')
+        let btn1 = document.querySelector('.btn')
+        let out = document.querySelector('.out')
+        let sel = document.querySelector('.sel')
+
+        btn1.onclick = () => {
+            
+            out.innerHTML = calc(inp1.value, inp2.value, sel)
+        }
+
+        function calc(inp1, inp2, sel) {
+            switch (sel.value) {
+                case '+':
+                    return +inp1 + +inp2
+                    break;
+                    case '-':
+                    return +inp1 - +inp2
+                    break;
+                    case '*':
+                    return +inp1 * +inp2
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
