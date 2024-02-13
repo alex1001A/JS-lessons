@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+        }
+
+        .card {
+            border: 1px solid red;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .disabled {
+
+            opacity: 0.5;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <select name="" id="">
+            <option value="Human">Human</option>
+            <option value="Human">Duck</option>
+        </select>
+        <label for="iu1">
+
+            Живий
+            <input type="checkbox">
+        </label>
+        <label for="iu2">
+
+            не Живий
+            <input type="checkbox">
+        </label>
+
+        <button>Search</button>
+
+        <button class="prev">Prev</button>
+        <button class="next">Next</button>
+        <div class="out-count">
+            1
+        </div>
+        <div class="btn-out">
+            
+        </div>
+    </header>
+
+    <div class="row">
+
+
+    </div>
+
+
+    <script>
+
+        let out = document.querySelector('.row')
+        let btnNext = document.querySelector('.next')
+        let btnPrev = document.querySelector('.prev')
+        let out1 = document.querySelector('.out-count')
+
+        let page = 1
+
+
+        function buttonNext(num) {
+            out.innerHTML = ""
+            fetch(`https://rickandmortyapi.com/api/character?page=${num}`)
+                .then(data => data.json())
+                .then(data => {
+                    console.log(data);
+                    data.results.map(item => out.innerHTML += ` 
+                            <div class="card">
+                          <h2 class="title"> ${item.name} </h2>  
+                          <img src='${item.image}'>
+                          <p>Раса: ${item.species}</p>
+
+                          </div>
+                    `)
+                })
+        }
+        buttonNext(page)
+
+
+        btnNext.onclick = () => {
+             // не більше кількості сторінок
+             console.log(page);
+            if (page >= 1 && page < 42) {
+                buttonNext(page++)
+                out1.innerHTML = page
+                btnPrev.classList.remove('disabled')
+                console.log(page);
+            } 
+        }
+        btnPrev.onclick = () => {
+            if (page > 1) {
+                buttonNext(page--)
+                out1.innerHTML = page
+            } else {
+                btnPrev.classList.add('disabled')
+            }
+        }
+    </script>
+</body>
+
+</html>

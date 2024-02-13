@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="card">
+
+
+    </div>
+
+    <div class="out"></div>
+
+    <script>
+        const out = document.querySelector('.out')
+        // const btn = document.querySelector('.btn')
+
+        const Tesla = {
+            name: 'Tesla',
+            description: "'While Tesla has moved on to flashy new products such as the Cybertruck, the 2024 Model Scarries on in its role as the brand's flagship luxury car. Its maximum estimated range of 405 miles per charge sits near the top of what buyers can expect from an EV, and its impressive performance and sports-sedan agility combine for a grin-inducing drive. Several rivals are edging in on Tesla's territory, though, including the Lucid Air, which offers more range, similar performance, and a more upscale experience inside its cabin. Tesla's notoriety remains difficult to compete with, and the same can be said for the brand's sprawling network of fast charging Supercharger stations. These things, combined with the car's high-tech features and impressive estimated driving range, keep the Model S in contention with its rivals.'",
+            img: 'https://hips.hearstapps.com/hmg-prod/images/2024-tesla-model-s-107-6572200e43fa1.jpg?crop=0.497xw:0.560xh;0.243xw,0.232xh&resize=768:*', price: 30000,
+            price: 30000,
+
+            ukrainePrice: function () {
+                return this.price * 37;
+            }
+        }
+
+        
+
+        out.innerHTML = `
+        <h2 class="card__title">${Tesla.name}</h2>
+        <img class="card__img" src="${Tesla.img}" alt="">
+        <p class="card__desc">${Tesla.description}</p>
+        <p class="card__price">${Tesla.price}</p>
+        <button class="btn">UAH</button>
+        <button class="btn1">USD</button>
+        `
+
+        let btn = document.querySelector('.btn')
+        let btn1 = document.querySelector('.btn1')
+        let cardPrice = document.querySelector('.card__price')
+        
+        btn.onclick = () => {
+            
+            cardPrice.innerHTML = Tesla.ukrainePrice()
+        }
+
+        btn1.onclick = () => {
+            
+            cardPrice.innerHTML = Tesla.price
+        }
+
+
+
+    </script>
+</body>
+
+</html>

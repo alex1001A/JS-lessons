@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input class="inp" type="text">
+    <div class="out"></div>
+    <button class="btn">Tesla</button>
+    <button class="btn1">BMW</button>
+
+
+    <script>
+
+        let btn = document.querySelector('.btn')
+        let btn1 = document.querySelector('.btn1')
+        let out = document.querySelector('.out')
+        let inp = document.querySelector('.inp')
+
+        let array = ['Tesla', 'Mers', 'BMW', 'Tesla']
+
+        function Search(carModel) {
+            for (let i = 0; i < array.length; i++) {
+                console.log(array[i]);
+                if (array[i] == carModel) {
+                    // return array[i]
+                    out.innerHTML = array[i]
+                }
+            }
+        }
+
+        function USDToUAH(price) {
+
+            return price * 37
+        }
+
+        btn.onclick = () => {
+            Search('Tesla')
+
+        }
+
+        btn1.onclick = () => {
+            out.innerHTML = Search('BMW') + USDToUAH(200) + 'грн'
+        }
+
+
+    </script>
+</body>
+
+</html>
