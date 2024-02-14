@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input class="inp" type="number">
+    <div class="out"></div>
+    <button class="btn">Start</button>
+
+    <script>
+
+        let btn = document.querySelector('.btn')
+        let out = document.querySelector('.out')
+        let inp = document.querySelector('.inp')
+
+        let array = [3, 2, 1, 4, 5]
+
+        btn.onclick = () => {
+            Search(+inp.value)
+        }
+
+        function Search(num) {
+            for (let i = 0; i < array.length; i++) {
+                // out.innerHTML += array[i];
+                if (array[i] == num) {
+                    out.innerHTML = array[i];
+                }
+            }
+        }
+
+
+        // Search(3)
+
+    </script>
+</body>
+
+</html>
