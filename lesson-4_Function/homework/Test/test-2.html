@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input class="inp1" type="number" />
+    <input class="inp2" type="number" />
+    <button class="btn1">Calculate</button>
+    <div class="out"></div>
+
+    <script>
+      //   Task 3
+
+      let btn1 = document.querySelector(".btn1");
+      let out = document.querySelector(".out");
+
+      function pow(x, n) {
+        return Math.pow(x, n);
+      }
+
+      btn1.onclick = () => {
+        let inp1 = document.querySelector(".inp1").value;
+        let inp2 = document.querySelector(".inp2").value;
+
+        let x = inp1;
+        let n = inp2;
+
+        console.log(pow(x, n));
+        out.innerHTML = pow(x, n);
+
+        inp1.value = "";
+        inp2.value = "";
+      };
+
+      // Task 1
+      //   function checkAge(age) {
+      //     if (age > 18) {
+      //       return true;
+      //     } else {
+      //       return confirm("Родители разрешили?");
+      //     }
+      //   }
+
+      //   Task 2
+      //   function min(a, b) {
+      //     if (a < b) {
+      //       return a;
+      //     } else {
+      //       return b;
+      //     }
+      //   }
+      //   console.log(min(10, 12));
+    </script>
+  </body>
+</html>

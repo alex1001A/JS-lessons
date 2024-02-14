@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input class="inp1" type="number" value="4" />
+    <input class="inp2" type="number" value="7" />
+    <button class="btn1">Calc</button>
+    <div class="out1"></div>
+
+    <script>
+      let btn1 = document.querySelector(".btn1");
+      let out1 = document.querySelector(".out1");
+
+      function example(a, b) {
+        
+        out1.innerHTML = a + b;
+      }
+
+      btn1.onclick = () => {
+        let inp1 = document.querySelector(".inp1").value;
+        let inp2 = document.querySelector(".inp2").value;
+        example(+inp1, +inp2);
+      };
+    </script>
+  </body>
+</html>
