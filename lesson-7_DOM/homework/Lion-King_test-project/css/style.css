@@ -1,0 +1,47 @@
+@import url('https://fonts.cdnfonts.com/css/lion-king');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-family: 'Lion kinG', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 50px;
+}
+
+section div {
+    margin-bottom: 50px;
+}
+
+section div img {
+    width: 250px;
+}
+
+.show-card img {
+    position: sticky;
+    top: 10px;
+    right: 20px;
+    width: 500px;
+}
+
+select {
+    margin-bottom: 30px;
+}
+
+.count {
+    position: sticky;
+    top: 20px;
+    right: 50px;
+    font-size: 50px;
+    z-index: 2;
+}

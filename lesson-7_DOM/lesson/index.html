@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>DOM</h1>
+    <div class="out"></div>
+
+    <ul class="out2">
+        
+    </ul>
+
+    <div class="count"></div>
+
+
+    <script>
+
+        let out = document.querySelector('.out')
+        let basket = document.querySelector('.out2')
+        let count = document.querySelector('.count')
+
+         const cars = [
+            {
+                img: 'https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_FMjpg_UX1000_.jpg',
+                brand: 'Volkswagen',
+                model: 'Touran',
+                age: 2003,
+                price: 4700,
+                lenght: 267,
+            },
+            {
+                img: 'https://pyxis.nymag.com/v1/imgs/3b7/ca7/5fd3353737d602a5a1caa3fce92cb33b39-rick-morty.1x.rsquare.w1400.jpg',
+                brand: 'Volkswagen',
+                model: 'Passat',
+                age: 2019,
+                price: 12700,
+                lenght: 106,
+            },
+            {
+                img: 'https://media.vanityfair.com/photos/652d49ca252ae42165d7e377/9:16/w_630,h_1120,c_limit/vf1023-rick-morty.png',
+                brand: 'Mersedes',
+                model: 'E',
+                age: 2013,
+                price: 22700,
+                lenght: 267,
+            },
+            {
+                img: 'https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_FMjpg_UX1000_.jpg',
+                brand: 'Mersedes',
+                model: 'S',
+                age: 2015,
+                price: 33700,
+                lenght: 67,
+            },
+            {
+                img: 'https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_FMjpg_UX1000_.jpg',
+                brand: 'Mazda',
+                model: '6',
+                age: 2010,
+                price: 11700,
+                lenght: 190,
+            },
+            {
+                img: 'https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_FMjpg_UX1000_.jpg',
+                brand: 'Mazda',
+                model: '3',
+                age: 2006,
+                price: 3700,
+                lenght: 230,
+            },
+        ]
+
+        cars.map(car => {
+            
+            let section = document.createElement('section')
+            let carTitle = document.createElement('h1')
+            let btn = document.createElement('button')
+            let listItem = document.createElement('li')
+            let card = document.createElement('div')
+            
+            carTitle.innerHTML = `${car.brand}`
+            card.innerHTML = car
+            btn.innerHTML = 'Add'
+
+
+            btn.onclick = () => {
+                basket.innerHTML += `<li>${car.brand}</li>`
+                count.innerHTML = +count.innerHTML + +1
+            }
+
+            listItem.append(card)
+            section.append(carTitle, btn)
+            out.append (section)
+            
+    
+        })
+
+        // cars.map(car => {
+            
+        //     let section = document.createElement('section')
+        //     let carTitle = document.createElement('h1')
+        //     let btn = document.createElement('button')
+        //     let listItem = document.createElement('li')
+        //     let card = document.createElement('div')
+            
+        //     carTitle.innerHTML = `${car.brand}`
+        //     card.innerHTML = car
+        //     btn.innerHTML = 'Add'
+
+
+        //     btn.onclick = () => {
+        //         basket.innerHTML += `<li>${car.brand}</li>`
+        //         count.innerHTML = +count.innerHTML + +1
+        //     }
+
+        //     listItem.append(card)
+        //     section.append(carTitle, btn)
+        //     out.append (section)
+            
+    
+        // })
+
+        
+        
+    </script>
+</body>
+</html>
