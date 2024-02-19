@@ -19,11 +19,15 @@ button {
     background-color: #596e79;
     padding: 10px;
     border-radius: 5px;
+    margin-right: 20px;
 }
 
 button:hover {
     background-color: rgba(89, 110, 121, 0.5);
 }
+
+/* Hide class - to hide unselected cards */
+
 
 body {
     font-family: 'Lion kinG', sans-serif;
@@ -49,6 +53,18 @@ body {
     z-index: 2;
     width: 40px;
     height: 40px;
+    background-color: #596e79;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.hero__reset-btn {
+    text-align: center;
+    font-size: 25px;
+    position: fixed;
+    top: 20px;
+    left: 420px;
+    z-index: 2;
     background-color: #596e79;
     border: 2px solid black;
     border-radius: 5px;
@@ -112,3 +128,20 @@ body {
 
 
 /* Hero Section */
+
+/* Zoom card */
+
+.zoom-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    zoom: 150%;
+    z-index: 5;
+    background-color: rgba(199, 177, 152, 1);
+    
+}
+
+.hide {
+    display: none;
+}

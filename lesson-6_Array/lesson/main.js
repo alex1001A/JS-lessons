@@ -5,13 +5,25 @@
 
  let count = 0
 
- function Plus() {
-     countOut.innerHTML = count++
- }
+//  function Plus() {
+//      countOut.innerHTML = count++
+//  }
 
- function Minus() {
-     countOut.innerHTML = count--
- }
+//  function Minus() {
+//      countOut.innerHTML = count--
+//  }
+
+function Plus() {
+  countOut.innerHTML = count++
+}
+
+function Minus() {
+  if (countOut.innerHTML > 0) {
+    countOut.innerHTML = count--
+  } else if (countOut.innerHTML < 0) {
+    countOut.innerHTML = 0
+  }
+}
 
  btnPlus.onclick = Plus
 

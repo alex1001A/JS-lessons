@@ -10,6 +10,10 @@ let count = document.createElement('p')
 count.classList.add('hero__count')
 count.innerHTML = 0
 
+let resetBtn = document.createElement('button')
+resetBtn.innerHTML = `Reset`
+resetBtn.classList.add('hero__reset-btn')
+
 let heroTitle = document.createElement('h1')
 heroTitle.classList.add('hero__title')
 heroTitle.innerHTML = 'Lion King'
@@ -24,7 +28,10 @@ let heroSelect = document.createElement('select')
 heroSelect.classList.add('hero__select')
 
 let filterBtn = document.createElement('button')
-filterBtn.innerHTML += `Filter`
+filterBtn.innerHTML = `Filter`
+
+let ShowAllBtn = document.createElement('button')
+ShowAllBtn.innerHTML = `Show All`
 
 const lionKing = [
   {
@@ -122,18 +129,53 @@ lionKing.map(character => {
     count.innerHTML = +count.innerHTML + 1
   }
 
-  let heroSelectOption = document.createElement('option')
-  heroSelectOption.innerHTML += `${character.species}`
+  cardImg.onclick = () => {
+    card.classList.toggle('zoom-card');
+  }
 
+  filterBtn.addEventListener('click', () => {
+    if (heroSelect.value !== character.species) {
+      card.classList.add('hide')
+    }
+  })
 
-  
+  ShowAllBtn.onclick = () => {
+    card.classList.remove('hide')
+  }
+
 
   cardDescription.append(cardDescriptionSpan)
   card.append(cardTitle, cardImg, cardSpecies, cardRole, cardDescription, cardAge, cardGender, btn)
   heroRow.append(card)
-  heroSelect.append(heroSelectOption)
-  container.append(count, heroTitle, heroSelect, filterBtn, heroRow)
+  container.append(count, resetBtn, heroTitle, heroSelect, filterBtn, ShowAllBtn, heroRow)
   hero.append(container)
   main.append(hero)
 })
 
+
+//Создаем уникальные значения для SPECIES чтобы поместить их опшионами в select
+let uniqueSpecies = new Set()
+
+lionKing.forEach(character => {
+  uniqueSpecies.add(character.species)
+})
+
+uniqueSpecies.forEach(species => {
+  let selOption = document.createElement('option');
+  selOption.innerHTML = species;
+  heroSelect.append(selOption);
+})
+
+//Создаём кнопку для фильтрации по выбранному селекту
+// filterBtn.addEventListener('click', () => {
+//   card.classList.add('hide')
+// })
+
+//Создаем кнопку для обнуления корзины
+function resetBtnFun() {
+  count.innerHTML = 0
+}
+
+resetBtn.onclick = resetBtnFun
+
+//Добавляем карточке класс, который покажет ее для рассмотрения
