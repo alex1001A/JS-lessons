@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul class="out"></ul>
+
+    <ul>
+        <li>
+            <span>Name 1</span>
+            <b>Age: 22</b>
+        </li>
+    </ul>
+
+
+
+    <script>
+
+        let out = document.querySelector('.out')
+
+        const Users = [
+            {
+                name: "name 1",
+                age: 22
+            },
+            {
+                name: "name 2",
+                age: 19
+            },
+            {
+                name: "name 3",
+                age: 17
+            },
+            {
+                name: "name 4",
+                age: 33
+            },
+        ]
+
+        // function createSpanAge(age) {
+        //     let spanAge = document.createElement('span')
+        //     spanAge.innerHTML = `<b>${age}</b>`
+
+        //     return spanAge
+        // }
+
+        function createItem(name, age) {
+            let li = document.createElement('li')
+            
+            let span = document.createElement('span')
+            span.innerHTML = name
+            
+            let b = document.createElement('b')
+            b.innerHTML = ` Age: ${age}`
+            
+            li.append(span, b)
+            return li
+        }
+
+        Users.map(item => {
+            out.append(createItem(item.name, item.age))
+        })
+
+        
+
+    </script>
+</body>
+
+</html>
