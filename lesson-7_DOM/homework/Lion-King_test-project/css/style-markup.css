@@ -63,7 +63,7 @@ body {
     font-size: 25px;
     position: fixed;
     top: 20px;
-    left: 420px;
+    left: 320px;
     z-index: 2;
     background-color: #596e79;
     border: 2px solid black;
@@ -83,6 +83,19 @@ body {
     margin-right: 2%;
     width: 220px;
     height: 30px;
+}
+
+.hero__inp {
+    background-color: transparent;
+    width: 150px;
+    height: 35px;
+    outline: none;
+    border: 2px solid #596e79;
+    border-radius: 8px;
+}
+
+.hero__inp_btn {
+    margin-left: 20px;
 }
 
 .hero__row {

@@ -1,7 +1,6 @@
 let out = document.querySelector(".main");
 
 function createMain() {
-
   //Count start
   let countFavourites = document.createElement("p");
   countFavourites.classList.add("hero__count");
@@ -18,6 +17,7 @@ function createMain() {
   container.classList.add("container");
 
   let secHeroTitle = document.createElement("h1");
+  secHeroTitle.innerHTML = "The Lion King";
   secHeroTitle.classList.add("hero__title");
 
   let secHeroRow = document.createElement("div");
@@ -38,6 +38,7 @@ function createMain() {
 
   //Utilities end
 
+
   secHeroRow.append(card);
   container.append(
     secHeroTitle,
@@ -52,4 +53,13 @@ function createMain() {
   return secHero;
 }
 
-createMain()
+createMain();
+
+
+lionKing.map((character) => {
+  let cardTitle = document.createElement("h4");
+  cardTitle.innerHTML = `${character.name}`;
+  cardTitle.classList.add("card__title");
+  
+  card.append(cardTitle)
+});
