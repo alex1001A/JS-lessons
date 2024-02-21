@@ -1,117 +1,126 @@
-let out = document.querySelector('.wrapper')
-let hero = document.querySelector('.hero')
-let showCard = document.querySelector('.show-card')
-let restart = document.querySelector('.restart')
-let count = document.querySelector('.count')
+let main = document.querySelector('.main')
+
+let hero = document.createElement('section')
+hero.classList.add('hero')
+
+let container = document.createElement('div')
+container.classList.add('container')
+
+let count = document.createElement('p')
+count.classList.add('hero__count')
+count.innerHTML = 0
+
+let resetBtn = document.createElement('button')
+resetBtn.innerHTML = `Reset`
+resetBtn.classList.add('hero__reset-btn')
+
+let heroTitle = document.createElement('h1')
+heroTitle.classList.add('hero__title')
+heroTitle.innerHTML = 'Lion King'
+
+let heroRow = document.createElement('div')
+heroRow.classList.add('hero__row')
+
+let card = document.createElement('div')
+card.classList.add('card')
+
+let heroSelect = document.createElement('select')
+heroSelect.classList.add('hero__select')
+
+let filterBtn = document.createElement('button')
+filterBtn.innerHTML = `Filter`
+
+let ShowAllBtn = document.createElement('button')
+ShowAllBtn.innerHTML = `Show All`
 
 
-const lionKing = [
-  {
-    name: 'Симба',
-    img: './img/simba.jpg',
-    species: 'Лев',
-    role: 'Главный герой',
-    description: 'Сын Муфасы и Сарафины, будущий король Прайд Рока.',
-    age: 2,
-    gender: 'Мужской',
-  },
-  {
-    name: 'Муфаса',
-    img: './img/mufasa.webp',
-    species: 'Лев',
-    role: 'Король',
-    description: 'Отец Симбы, предыдущий король Прайд Рока.',
-    age: 8,
-    gender: 'Мужской',
-  },
-  {
-    name: 'Нала',
-    img: './img/nala.webp',
-    species: 'Лев',
-    role: 'Подруга Симбы',
-    description: 'Друг и подруга детства Симбы, взрослая львица.',
-    age: 3,
-    gender: 'Женский',
-  },
-  {
-    name: 'Тимон',
-    img: './img/timon.jpg',
-    species: 'Сурок',
-    role: 'Друг Симбы',
-    description: 'Смешной и остроумный сурок, друг Симбы и Пумбы.',
-    age: 1,
-    gender: 'Мужской',
-  },
-  {
-    name: 'Пумба',
-    img: './img/pumba.webp',
-    species: 'Свинья',
-    role: 'Друг Симбы',
-    description: 'Добродушная свинья, друг Симбы и Тимона.',
-    age: 4,
-    gender: 'Мужской',
-  },
-  {
-    name: 'Рафики',
-    img: './img/rafiki.jpg',
-    species: 'Мартышка',
-    role: 'Мудрец и священник',
-    description: 'Мартышка, исполняющая роль мудреца и священника в Прайд Роке.',
-    age: 10,
-    gender: 'Мужской',
-  },
-
-]
-
-lionKing.map(item => {
-
-  function ShowCard() {
-    showCard.innerHTML = ''
-    showCard.innerHTML = `<img src="${item.img}">`
-  }
+lionKing.map(character => {
 
   let card = document.createElement('div')
+  card.classList.add('card')
 
-  let itemTitle = document.createElement('h3')
-  itemTitle.innerHTML = `Імя: ${item.name}`
+  let cardTitle = document.createElement('h1')
+  cardTitle.innerHTML = `${character.name}`
 
-  let itemImg = document.createElement('img')
-  itemImg.src = `${item.img}`
-  itemImg.onclick = ShowCard
+  let cardImg = document.createElement('img')
+  cardImg.classList.add('card__img')
+  cardImg.src = `${character.img}`
 
-  let species = document.createElement('p')
-  species.innerHTML = `Вид: ${item.species}`
+  let cardSpecies = document.createElement('p')
+  cardSpecies.innerHTML = `Species: ${character.species}`
 
-  let role = document.createElement('h4')
-  role.innerHTML = `Роль: ${item.role}`
+  let cardRole = document.createElement('p')
+  cardRole.innerHTML = `Role: ${character.role}`
 
-  let description = document.createElement('p')
-  description.innerHTML = `Описание: ${item.description}`
+  let cardDescription = document.createElement('p')
+  cardDescription.innerHTML = `Description: `
 
-  let age = document.createElement('p')
-  age.innerHTML = `Возраст: ${item.age}`
+  let cardDescriptionSpan = document.createElement('span')
+  cardDescriptionSpan.classList.add('card__text_inner')
+  cardDescriptionSpan.innerHTML = `${character.description}`
 
-  let gender = document.createElement('p')
-  gender.innerHTML = `Пол: ${item.gender}`
+  let cardAge = document.createElement('p')
+  cardAge.innerHTML = `Age: ${character.age}`
 
-  let btnAddCard = document.createElement('button')
-  btnAddCard.innerHTML = 'Add to favourite'
-  let count1 = 0
-  btnAddCard.onclick = () => {
-    count.innerHTML = +count.innerHTML + +1
+  let cardGender = document.createElement('p')
+  cardGender.innerHTML = `Gender:${character.gender}`
+
+  let btn = document.createElement('button')
+  btn.classList.add('card__btn')
+  btn.innerHTML = "Add to favourite"
+
+  btn.onclick = () => {
+    count.innerHTML = +count.innerHTML + 1
   }
 
-  card.append(itemTitle, itemImg, species, role, description, age, gender, btnAddCard)
-  hero.append(card)
+  cardImg.onclick = () => {
+    card.classList.toggle('zoom-card');
+  }
 
+  filterBtn.addEventListener('click', () => {
+    if (heroSelect.value === character.species) {
+      heroRow.prepend(card)
+    } else {
+      card.style.display = 'none'
+    }
+  })
 
-
-
-  let select = document.querySelector('.select')
-  let btn = document.querySelector('.btn')
-
-  select.innerHTML += `<option>${item.name}</option>`
-
+  ShowAllBtn.onclick = () => {
+    card.style.display = 'flex'
+  }
+  
+  cardDescription.append(cardDescriptionSpan)
+  card.append(cardTitle, cardImg, cardSpecies, cardRole, cardDescription, cardAge, cardGender, btn)
+  heroRow.append(card)
+  container.append(count, resetBtn, heroTitle, heroSelect, filterBtn, ShowAllBtn, heroRow)
+  hero.append(container)
+  main.append(hero)
 })
 
 
+//Создаем уникальные значения для SPECIES чтобы поместить их опшионами в select
+let uniqueSpecies = new Set()
+
+lionKing.forEach(character => {
+  uniqueSpecies.add(character.species)
+})
+
+uniqueSpecies.forEach(species => {
+  let selOption = document.createElement('option');
+  selOption.innerHTML = species;
+  heroSelect.append(selOption);
+})
+
+//Создаём кнопку для фильтрации по выбранному селекту
+// filterBtn.addEventListener('click', () => {
+//   card.classList.add('hide')
+// })
+
+//Создаем кнопку для обнуления корзины
+function resetBtnFun() {
+  count.innerHTML = 0
+}
+
+resetBtn.onclick = resetBtnFun
+
+//Создаём функцию для фильтрации по селекту
