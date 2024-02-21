@@ -1,0 +1,147 @@
+@import url('https://fonts.cdnfonts.com/css/lion-king');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-family: 'Lion kinG', sans-serif;
+    cursor: pointer;
+    background-color: #596e79;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+button:hover {
+    background-color: rgba(89, 110, 121, 0.5);
+}
+
+/* Hide class - to hide unselected cards */
+
+
+body {
+    font-family: 'Lion kinG', sans-serif;
+    background-color: #dfd3c3;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero {
+    margin-bottom: 100px;
+    position: relative;
+}
+
+.hero__count {
+    text-align: center;
+    font-size: 25px;
+    position: sticky;
+    top: 20px;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    background-color: #596e79;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.hero__reset-btn {
+    text-align: center;
+    font-size: 25px;
+    position: fixed;
+    top: 20px;
+    left: 420px;
+    z-index: 2;
+    background-color: #596e79;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.hero__title {
+    font-size: 60px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.hero__select {
+    margin-bottom: 30px;
+    background: transparent;
+    border-radius: 5px;
+    margin-right: 2%;
+    width: 220px;
+    height: 30px;
+}
+
+.hero__row {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 320px;
+    gap: 10px;
+    border: 3px solid #c7b198;
+    border-radius: 20px;
+    background-color: rgba(199, 177, 152, 0.5);
+    padding: 15px 15px 50px 15px;
+}
+
+.card__title {
+    font-size: 30px;
+    color: #596e79;
+}
+
+.card__img {
+    border-radius: 10px;
+    box-shadow: 4px 4px 16px 0px;
+    margin-bottom: 15px;
+    width: 250px;
+}
+
+.card__text_inner {
+    font-size: 12px;
+}
+
+.card__btn {
+    position: absolute;
+    bottom: 10px;
+}
+
+
+/* Hero Section */
+
+/* Zoom card */
+
+.zoom-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    zoom: 150%;
+    z-index: 5;
+    background-color: rgba(199, 177, 152, 1);
+    
+}
+
+.hide {
+    display: none;
+}
