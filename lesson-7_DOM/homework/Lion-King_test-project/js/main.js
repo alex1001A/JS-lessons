@@ -142,36 +142,36 @@ uniqueSpecies.forEach((species) => {
 
 //Создаем input для писка по имени героя
 
-// function searchHero() {
-//   let TypedName = heroInp.value;
-//   let cardList = document.querySelectorAll(".card");
-
-//   lionKing.map((item) => {
-//     if (TypedName === item.name) {
-//       cardList.forEach((heroCard) => {
-//         heroCard.style.display = "flex";
-//       });
-//     } else {
-//       cardList.forEach((heroCard) => {
-//         heroCard.style.display = "none";
-//       });
-//     }
-//   });
-// }
-
 function searchHero() {
-  let TypedName = heroInp.value.toLowerCase(); // Приводим введенное имя к нижнему регистру (для более гибкого поиска)
+  let TypedName = heroInp.value;
+  let cardList = document.querySelectorAll(".card");
 
-  lionKing.forEach((item) => {
-    let heroCard = document.getElementsByClassName('card'); // Получаем элемент карточки по ID (предполагается, что у карточек есть уникальные ID)
-    console.log(item);
-    if (TypedName === item.name.toLowerCase()) {
-      heroCard.style.display = "flex";
+  lionKing.map((item) => {
+    if (TypedName === item.name) {
+      cardList.forEach((heroCard) => {
+        heroCard.style.display = "flex";
+      });
     } else {
-      heroCard.style.display = "none";
+      cardList.forEach((heroCard) => {
+        heroCard.style.display = "none";
+      });
     }
   });
 }
+
+// function searchHero() {
+//   let TypedName = heroInp.value.toLowerCase(); // Приводим введенное имя к нижнему регистру (для более гибкого поиска)
+
+//   lionKing.forEach((item) => {
+//     let heroCard = document.getElementsByClassName('card'); // Получаем элемент карточки по ID (предполагается, что у карточек есть уникальные ID)
+//     console.log(item);
+//     if (TypedName === item.name.toLowerCase()) {
+//       heroCard.style.display = "flex";
+//     } else {
+//       heroCard.style.display = "none";
+//     }
+//   });
+// }
 
 searchBtn.onclick = () => {
   searchHero();

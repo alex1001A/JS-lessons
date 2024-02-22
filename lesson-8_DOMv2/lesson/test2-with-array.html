@@ -12,10 +12,7 @@
     <ul class="out"></ul>
 
     <ul>
-        <li>
-            <span>Name 1</span>
-            <b>Age: 22</b>
-        </li>
+
     </ul>
 
 
@@ -27,47 +24,86 @@
         const Users = [
             {
                 name: "name 1",
-                age: 22
+                age: 22,
+                gender: "Man"
             },
             {
                 name: "name 2",
-                age: 19
+                age: 19,
+                gender: "Woman"
             },
             {
                 name: "name 3",
-                age: 17
+                age: 15,
+                gender: "Woman"
             },
             {
                 name: "name 4",
-                age: 33
+                age: 33,
+                gender: "Man"
             },
         ]
 
-        // function createSpanAge(age) {
-        //     let spanAge = document.createElement('span')
-        //     spanAge.innerHTML = `<b>${age}</b>`
+            
 
-        //     return spanAge
+
+
+
+
+
+
+
+        // function createItem(name, age) {
+        //     let li = document.createElement('li')
+
+        //     let span = document.createElement('span')
+        //     span.innerHTML = name
+
+        //     let b = document.createElement('b')
+        //     b.innerHTML = ` Age: ${age}`
+
+        //     li.append(span, b)
+        //     return li
         // }
 
-        function createItem(name, age) {
-            let li = document.createElement('li')
-            
-            let span = document.createElement('span')
-            span.innerHTML = name
-            
-            let b = document.createElement('b')
-            b.innerHTML = ` Age: ${age}`
-            
-            li.append(span, b)
-            return li
-        }
+        // Users.map(item => {
+        //     out.append(createItem(item.name, item.age))
+        // })
 
-        Users.map(item => {
-            out.append(createItem(item.name, item.age))
-        })
 
-        
+
+        //Примера создания функции, не привязанной к ключам в массиве 
+
+        // function createItem(item) {
+        //     let li = document.createElement('li');
+        //     let span = document.createElement('span');
+
+        //     // Используем свойства объекта, ожидая определенные ключи
+        //     span.innerHTML = (item.name || item.fullName) + item.gender;
+
+        //     let bold = document.createElement('b');
+        //     bold.innerHTML = item.age ? `Age:  ${item.age}` : '';
+        //     li.append(span, bold);
+        //     return li;
+        // }
+
+        // const Users1 = [
+        //     { name: "name1", age: 25, gender: "Man" },
+        //     { username: "user2", years: 30, sex: "Woman" }
+        // ];
+
+        // const Users2 = [
+        //     { person: "name3", years: 22, gender: "Man" },
+        //     { fullName: "name4", age: 28, gender: "Woman" }
+        // ];
+
+        // // Вызываем функцию с объектами из разных массивов
+        // const item1 = createItem(Users1[0]);
+        // console.log(item1);
+
+        // const item2 = createItem(Users2[1]);
+        // console.log(item2);
+
 
     </script>
 </body>
