@@ -10,10 +10,11 @@
 <body>
 
 
-    <input type="text">
+    <input class="inp-text" type="text">
+    <ol class="out2"></ol>
     <hr>
     <label for="ch1">
-        <input id="ch1" type="checkbox">
+        <input class="inp-check" id="ch1" type="checkbox">
         Старше 18 років
     </label>
 
@@ -22,8 +23,10 @@
 
 
     <script>
-        let inp = document.querySelector('input')
+        let inpText = document.querySelector('.inp-text')
+        let inpCheck = document.querySelector('.inp-check')
         let out = document.querySelector('.out')
+        let out2 = document.querySelector('.out2')
 
         let arr2 = [
             {
@@ -48,18 +51,34 @@
             },
         ]
 
-        arr2.map(item => {
+        inpText.addEventListener('keyup', () => {
             
-            let li = document.createElement('li')
-            li.innerHTML = item.name
+            out2.innerHTML = ''
+            arr2.map(item => {
+                
+                let vLcase = inpText.value.toLocaleLowerCase()
+                let itemNameLcase = item.name.toLocaleLowerCase()
 
-            inp.addEventListener('change', () => {
-                if (inp.checked) {
-                    console.log('Test');
-                    // out.append(item)
+                if (itemNameLcase.includes(vLcase)) {
+                    let listItem = document.createElement('li')
+                    listItem.innerHTML = `${item.name}`
+
+                    out2.append(listItem)
                 }
             })
         })
+
+        inpCheck.addEventListener('change', () => {
+            out.innerHTML = ''
+            arr2.map(item => {
+                let li = document.createElement('li')
+                li.innerHTML = `Так, йому(їй) 18 років - <b>${item.name}</b>`
+
+                if (inpCheck.checked && item.age >= 18) {
+                    out.append(li)
+                }
+            })
+        });
 
 
     </script>
