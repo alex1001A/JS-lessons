@@ -9,6 +9,11 @@
 
 <body>
 
+    <button class="male">Men</button>
+    <button class="female">Women</button>
+    <button class="show-all">Show all</button>
+
+
     <ul class="out"></ul>
 
     <ul>
@@ -44,9 +49,70 @@
             },
         ]
 
-            
+
+        function creatItem(item) {
+            let listItem = document.createElement('li')
+
+            let nameStroke = document.createElement('span')
+            nameStroke.innerHTML = `<b>Name:</b> ${item.name} <br>`
+
+            let ageStroke = document.createElement('span')
+            ageStroke.innerHTML = `Age: <b>${item.age}</b> <br>`
+
+            let genderStroke = document.createElement('span')
+            genderStroke.innerHTML = `Sex: ${item.gender}`
+
+            listItem.append(nameStroke, ageStroke, genderStroke)
+
+            return listItem
+        }
+
+        function renderItems() {
+            out.innerHTML = ''
+            Users.map(item => {
+                out.append(creatItem(item))
+            })
+        }
+
+        renderItems()
+
+        function sortGenderMale() {
+            out.innerHTML = ''
+            Users.map(item => {
+                if (item.gender === 'Man') {
+                    out.append(creatItem(item))
+                }
+            })
+        }
+
+        function sortGenderFemale() {
+            out.innerHTML = ''
+            Users.map(item => {
+                if (item.gender === 'Woman') {
+                    out.append(creatItem(item))
+                }
+            })
+        }
 
 
+
+        
+        let btnMan = document.querySelector('.male')
+        btnMan.onclick = () => {
+            sortGenderMale(
+            )
+        }
+
+        let btnWoman = document.querySelector('.female')
+        btnWoman.onclick = () => {
+            sortGenderFemale(
+            )
+        }
+
+        let showAllBtn = document.querySelector('.show-all')
+        showAllBtn.onclick = () => {
+            renderItems()
+        }
 
 
 

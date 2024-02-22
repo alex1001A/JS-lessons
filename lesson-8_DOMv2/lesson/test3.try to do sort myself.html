@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button class="male">Men</button>
+    <button class="female">Women</button>
+    <button class="show-all">Show all</button>
+
+    <ul class="out"></ul>
+
+    <ul></ul>
+
+    <script>
+      let out = document.querySelector(".out");
+
+      const Users = [
+        {
+          name: "name 1",
+          age: 22,
+          gender: "Man",
+        },
+        {
+          name: "name 2",
+          age: 19,
+          gender: "Woman",
+        },
+        {
+          name: "name 3",
+          age: 15,
+          gender: "Woman",
+        },
+        {
+          name: "name 4",
+          age: 33,
+          gender: "Man",
+        },
+      ];
+
+      function createItem(item) {
+        let listItem = document.createElement("li");
+
+        let nameStroke = document.createElement("span");
+        nameStroke.innerHTML = `Name: ${item.name} <br>`;
+
+        let ageStroke = document.createElement("span");
+        ageStroke.innerHTML = `<b>Age:</b> ${item.age} <br>`;
+
+        let genderStroke = document.createElement("span");
+        genderStroke.innerHTML = `Age: ${item.gender} <br>`;
+
+        listItem.append(nameStroke, ageStroke, genderStroke);
+
+        return listItem;
+      }
+
+      function fillOut() {
+        out.innerHTML = "";
+        Users.map((item) => {
+          out.append(createItem(item));
+        });
+      }
+
+      fillOut();
+
+      function sortBygenderMale() {
+        out.innerHTML = "";
+        Users.map((item) => {
+          if (item.gender === "Man") {
+            out.append(createItem(item));
+          }
+        });
+      }
+
+      function sortByGenderFemale() {
+        out.innerHTML = "";
+        Users.map((item) => {
+          if (item.gender === "Woman") {
+            out.append(createItem(item));
+          }
+        });
+      }
+
+      let btnMan = document.querySelector(".male");
+      btnMan.onclick = () => {
+        sortBygenderMale();
+      };
+
+      let btnWoman = document.querySelector(".female");
+      btnWoman.onclick = () => {
+        sortByGenderFemale();
+      };
+
+      let btnShowAll = document.querySelector(".show-all");
+      btnShowAll.onclick = () => {
+        fillOut();
+      };
+    </script>
+  </body>
+</html>
