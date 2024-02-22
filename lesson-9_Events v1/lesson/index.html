@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .error {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" class="inp1">
+    <input class="inp-check" type="checkbox">
+    
+    <button class="btn">Test</button>
+
+
+<script>
+    let btn = document.querySelector('.btn')
+    let inpCheck = document.querySelector('.inp-check')
+    let inp1 = document.querySelector('.inp1')
+
+    //Old method
+    // btn.onclick = () => {
+    //     console.log('test 1');
+    // }
+
+    // btn.onclick = () => {
+    //     console.log('test 2');
+    // }
+
+    //New method
+    btn.addEventListener('click', () => {
+        console.log('test 1');
+        num()
+    })
+
+    btn.addEventListener('click', () => {
+        console.log('test 2');
+    })
+
+    inpCheck.addEventListener('change', () => {
+        console.log('test 3');
+    })
+
+    
+
+    inpCheck.addEventListener('change', () => {
+        console.log(inpCheck.checked);
+    })
+
+    function num() {
+        console.log('function Num');
+    }
+
+
+</script>
+
+</body>
+</html>

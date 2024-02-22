@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <input type="text">
+    <button>Search</button>
+
+
+
+    <script>
+
+        let inp = document.querySelector('input')
+        let btn = document.querySelector('button')
+        let arr = ['Sasha', 'Sveta', 'Olga', 'Vova']
+
+        inp.addEventListener('keyup', () => {
+            arr.map(item => {
+                // if (inp.value == item) {
+                //     console.log(item);
+                // }
+
+                if (item.includes(inp.value)) {
+                    console.log(item);
+                }
+            })
+        })
+
+    </script>
+</body>
+
+</html>

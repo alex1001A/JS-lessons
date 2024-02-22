@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+    
+<input class="inp-check" type="checkbox"> <br>
+<input class="inp-check" type="checkbox"> <br>
+<input class="inp-check" type="checkbox"> <br>
+<input class="inp-check" type="checkbox"> <br>
+<input class="inp-check" type="checkbox"> <br>
+<input class="inp-check" type="checkbox"> <br>
+<input class="inp-check" type="checkbox"> <br>
+
+<div class="count">0</div>
+
+
+    <script>
+        // let inpCheck = document.querySelector('.inp-check')
+        let inpList = document.querySelectorAll('.inp-check')
+        let count = document.querySelector('.count')
+        let number = 0
+
+        // inpCheck.addEventListener('change', () => {
+        //     if (inpCheck.checked) {
+        //         count.innerHTML = ++number
+        //     } 
+        // })
+
+        inpList.forEach(item => {
+            if (item.checked) {
+                count.innerHTML = ++number
+            } 
+        })
+
+    </script>
+</body>
+</html>
