@@ -9,6 +9,11 @@
 
 <body>
 
+    <button class="male">Men</button>
+    <button class="female">Women</button>
+    <button class="show-all">Show all</button>
+
+
     <ul class="out"></ul>
 
     <ul>
@@ -47,6 +52,24 @@
         
 
 
+
+        
+        let btnMan = document.querySelector('.male')
+        btnMan.onclick = () => {
+            sortGenderMale(
+            )
+        }
+
+        let btnWoman = document.querySelector('.female')
+        btnWoman.onclick = () => {
+            sortGenderFemale(
+            )
+        }
+
+        let showAllBtn = document.querySelector('.show-all')
+        showAllBtn.onclick = () => {
+            renderItems()
+        }
 
 
 
