@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ol class="out"></ol>
+    <button class="btn">Show All</button>
+
+    <div class="count">0</div>
+
+
+    <script>
+        let out = document.querySelector('.out')
+        let count = document.querySelector('.count')
+        let btn = document.querySelector('.btn')
+        let users = [
+            {
+                name: "Test 1",
+                age: 22
+            },
+            {
+                name: "Test 2",
+                age: 90
+            },
+            {
+                name: "Test 3",
+                age: 50
+            },
+            {
+                name: "Test 4",
+                age: 19
+            },
+            {
+                name: "Test 5",
+                age: 22
+            },
+        ]
+
+        let numCunt = 5
+
+
+        function createLI(item) {
+            let li = document.createElement('li')
+
+            let span = document.createElement('span')
+            span.innerHTML = item.name
+
+            let bold = document.createElement('strong')
+            bold.innerHTML = `${item.age} Років `
+
+            let inp = document.createElement('input')
+            inp.type = 'checkbox'
+            inp.addEventListener('change', () => {
+                if (inp.checked) {
+                    li.style.textDecoration = 'line-through'
+                    count.innerHTML = --numCunt
+                } else {
+                    li.style.textDecoration = 'none'
+                    count.innerHTML = ++numCunt
+                }
+            })
+
+            let button = document.createElement('button')
+            button.innerHTML = '❌'
+
+            button.addEventListener('click', () => {
+                li.remove()
+                if (condition) {
+                    
+                }
+                count.innerHTML = --numCunt
+            })
+
+            li.append(inp, span, bold, button)
+            return li
+        }
+
+
+        btn.addEventListener('click', () => {
+            out.innerHTML = ''
+            count.innerHTML = numCunt
+            users.map(item => {
+                out.append(createLI(item))
+            })
+        })
+
+    </script>
+</body>
+
+</html>
