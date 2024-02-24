@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <input class="inp-text" type="text">
+    <ol class="out1"></ol>
+    <hr>
+    <label for="ch1">
+        <input class="inp-check" id="ch1" type="checkbox">
+        Старше 18 років
+    </label>
+
+    <ol class="out2"></ol>
+
+
+
+    <script>
+        let out1 = document.querySelector('.out1')
+        let out2 = document.querySelector('.out2')
+        let inpCheck = document.querySelector('.inp-check')
+        let inpText = document.querySelector('.inp-text')
+
+
+        let arr2 = [
+            {
+                name: "Sasha",
+                age: 22
+            },
+            {
+                name: "Sveta",
+                age: 15
+            },
+            {
+                name: "Olha",
+                age: 33
+            },
+            {
+                name: "Vova",
+                age: 13
+            },
+            {
+                name: "Sasha 2",
+                age: 44
+            },
+        ]
+
+        inpText.addEventListener('keyup', () => {
+            out1.innerHTML = ''
+            arr2.map(item => {
+                let inpTextValueLower = inpText.value.toLocaleLowerCase()
+                let arrayItemLower = item.name.toLocaleLowerCase()
+
+                
+                if (arrayItemLower.includes(inpTextValueLower)) {
+                    let li1 = document.createElement('li')
+                    li1.innerHTML = item.name
+
+                    out1.append(li1)
+                    
+                }
+            })
+        })
+
+        inpCheck.addEventListener('change', () => {
+            out2.innerHTML = ''
+            arr2.map(item => {
+                let li2 = document.createElement('li')
+                li2.innerHTML = item.name + item.age
+
+                if (inpCheck.checked && item.age >= 18) {
+                    out2.append(li2)
+                }
+
+            })
+        }) 
+
+
+    </script>
+</body>
+
+</html>
