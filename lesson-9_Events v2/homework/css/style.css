@@ -24,11 +24,28 @@ body {
 }
 
 .span {
-margin-left: 10px;
-position: relative;
+    margin-left: 10px;
+    position: relative;
+}
+
+.btn-edit {
+    position: absolute;
+    left: 270px;
 }
 
 .btn-remove {
-position: absolute;
-left: 300px;
+    position: absolute;
+    left: 300px;
+}
+
+.low {
+    background-color: green;
+}
+
+.middle {
+    background-color: yellow;
+}
+
+.high {
+    background-color: red;
 }
