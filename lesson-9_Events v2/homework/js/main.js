@@ -61,8 +61,10 @@ function createTask(item, index) {
     inpCheck.addEventListener('change', () => {
             if (inpCheck.checked) {
                 spanName.style.textDecoration = 'line-through'
+                count.innerHTML = +count.innerHTML - 1
             } else {
                 spanName.style.textDecoration = ''
+                count.innerHTML = +count.innerHTML + 1
             }
     })
 
@@ -90,8 +92,6 @@ function createTask(item, index) {
     let click = 1
     
     function editTask() {
-        
-
         if (click == 1) {
             spanName.contentEditable = 'true'
             click = 2
@@ -104,22 +104,10 @@ function createTask(item, index) {
     editBtn.addEventListener('click', () => {
         editTask()
     })
-    
-    inpCheck.addEventListener('change', () => {
-        if (inpCheck.checked) {
-            count.innerHTML = +count.innerHTML - 1
-        } else {
-            count.innerHTML = +count.innerHTML + 1
-        }
-    })
 
     li.append(inpCheck, spanName, editBtn, btnDelete)
 
     return li
 }
-
-
-
-
 
 // out.innerHTML = ` <li><input type="checkbox"><span class="${testJbj.peotity}">Test</span> <button>Х</button></li>`
