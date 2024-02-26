@@ -28,7 +28,6 @@ btn.addEventListener('click', () => {
     count.innerHTML = +count.innerHTML + 1
 })
 
-
 function createTask(item, index) {
 
     let li = document.createElement('li')
