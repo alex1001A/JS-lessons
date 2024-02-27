@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select class="sel">
+      <option value="">Male</option>
+      <option value="">Female</option>
+    </select>
+    <button class="show-all">Show All</button>
+    <button class="btn">Adult</button>
+    <ol class="out"></ol>
+
+    <script>
+      const people = [
+        {
+          name: "Alex",
+          age: 26,
+          gender: "Male",
+        },
+        {
+          name: "Natali",
+          age: 37,
+          gender: "Female",
+        },
+        {
+          name: "Vlad",
+          age: 24,
+          gender: "Male",
+        },
+        {
+          name: "Lena",
+          age: 48,
+          gender: "Female",
+        },
+        {
+          name: "Phill",
+          age: 15,
+          gender: "Male",
+        },
+        {
+          name: "Olya",
+          age: 10,
+          gender: "Female",
+        },
+      ];
+
+      let showAllBtn = document.querySelector(".show-all");
+      let btnAdult = document.querySelector(".btn");
+      let out = document.querySelector(".out");
+      let select = document.querySelector(".sel");
+
+      function createLi(people) {
+        people.map(person => {
+          let li = document.createElement("li");
+          li.innerHTML = `${person.name}: ${person.age} years old`;
+
+          out.append(li);
+        });
+      }
+
+      let click = 1;
+
+      function showHideCard() {
+        out.innerHTML = ''
+        if (click == 1) {
+          createLi(people);
+          click = 2;
+        } else if (click == 2) {
+          out.innerHTML = "";
+          click = 1;
+        }
+      }
+
+      let newPeople = []
+
+      function showAdults() {
+        out.innerHTML = ''
+        newPeople = people.filter(person => person.age >= 18)
+        createLi(newPeople)
+      }
+
+      showAllBtn.addEventListener("click", () => {
+        showHideCard();
+      });
+
+      btnAdult.addEventListener("click", () => {
+        showAdults();
+      });
+    </script>
+  </body>
+</html>

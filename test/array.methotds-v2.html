@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="out"></div>
+
+
+    <script>
+        arr1 = [
+            {
+                name: 'Alex',
+                age: 5
+            },
+            {
+                name: 'Alex1',
+                age: 10
+            },
+            {
+                name: 'Aleex2',
+                age: 15
+            },
+            {
+                name: 'Alex3',
+                age: 11
+            },
+            {
+                name: 'Alex4',
+                age: 12
+            }, 
+        ]
+
+        arr2 = [
+            {
+                name: 'Natali',
+                age: 16
+            },
+            {
+                name: 'Natali2',
+                age: 23
+            },
+            {
+                name: 'Natali3',
+                age: 12
+            },
+            {
+                name: 'Nayali4',
+                age: 14
+            },
+            {
+                name: 'Natali5',
+                age: 1
+            }, 
+        ]
+
+        let out = document.querySelector('.out')
+
+        function Array(arr1) {
+            arr1.forEach(person => {
+                out.innerHTML += `${person.name} <br>`
+            });
+        }
+
+        Array(arr1)
+        Array(arr2)
+        
+        </script>
+</body>
+</html>
