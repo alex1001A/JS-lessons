@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        .box {
+            
+            height: 100px;
+            margin-right: 20px;
+            width: 100px;
+            background-color: black;
+        }
+        
+        .blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <button class="btn">add</button>
+
+
+    <script>
+        let box = document.querySelectorAll('.box')
+        let btn = document.querySelector('.btn')
+
+        btn.addEventListener('click', () => {
+            box.forEach(boxItem => {
+                boxItem.classList.toggle('blue')
+            })
+
+        })
+
+    </script>
+</body>
+</html>
