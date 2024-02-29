@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+
+    <button onclick="this.innerHTML = Date()">The time is?</button>
+
+
+    <script>
+      let x = myFunction(4, 3);
+      document.getElementById("demo").innerHTML = x;
+
+      function myFunction(a, b) {
+        if (a >= b) {
+          return a / b;
+        } else if (a <= b) {
+          return a * b;
+        }
+      }
+
+      let txt = "I can eat bananas all day";
+      let y = txt.slice(10, 17);
+
+      console.log(y);
+
+      let a = "Hello World"
+      a = a.replace("Hello", "Welcome")
+
+      console.log(a);
+
+    //   const d = new Date()
+    //   alert(d)
+
+
+
+
+    </script>
+  </body>
+</html>

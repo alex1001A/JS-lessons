@@ -32,19 +32,18 @@ function createCityCard(ukrainianCities) {
     return;
   });
 }
+
 let click = 1;
+
 function doubleClick(ukrainianCities) {
   if (click == 1) {
     createCityCard(ukrainianCities);
     click = 2;
-    console.log(99, click)
   } else if (click == 2) {
-    console.log(click)
     out.innerHTML = "";
     click = 1;
   }
 }
-
 
 showBtn.addEventListener("click", () => {
   doubleClick(ukrainianCities)
@@ -54,5 +53,5 @@ let megaPolis = ukrainianCities.filter((city) => city.population >= 1000000);
 console.log(megaPolis);
 
 showMega.addEventListener("click", () => {
-  doubleClick(ukrainianCities)
+  doubleClick(megaPolis)
 });
