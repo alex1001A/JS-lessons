@@ -18,42 +18,41 @@ function createCityCard(ukrainianCities) {
 
     let cityName = document.createElement("li");
     cityName.innerHTML = `<b>Name of the city:</b> ${city.name}`;
-    
+
     let cityPopulation = document.createElement("li");
     cityPopulation.innerHTML = `<b>city population:</b> ${city.population}`;
-    
+
     let cityRegion = document.createElement("li");
     cityRegion.innerHTML = `<b>city region:</b> ${city.region}`;
-    
+
     ol.append(cityName, cityPopulation, cityRegion);
     li.append(ol);
     out.append(li);
-    
+
     return;
   });
 }
+let click = 1;
+function doubleClick(ukrainianCities) {
+  if (click == 1) {
+    createCityCard(ukrainianCities);
+    click = 2;
+    console.log(99, click)
+  } else if (click == 2) {
+    console.log(click)
+    out.innerHTML = "";
+    click = 1;
+  }
+}
 
-let click = 1
 
-showBtn.addEventListener('click', () => {
-    if (click == 1) {
-        createCityCard(ukrainianCities)
-        click = 2
-    } else if (click == 2) {
-        out.innerHTML= ''
-        click = 1
-    }
-})
+showBtn.addEventListener("click", () => {
+  doubleClick(ukrainianCities)
+});
 
-let megaPolis = ukrainianCities.filter(city => city.population >= 1000000)
+let megaPolis = ukrainianCities.filter((city) => city.population >= 1000000);
 console.log(megaPolis);
 
-showMega.addEventListener('click', () => {
-    if (click == 1) {
-        createCityCard(megaPolis)
-        click = 2
-    } else if (click == 2) {
-        out.innerHTML= ''
-        click = 1
-    }
-})
+showMega.addEventListener("click", () => {
+  doubleClick(ukrainianCities)
+});
