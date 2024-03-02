@@ -1,11 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+
+    <style>
+      .out {
+        max-width: 600px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid rosybrown;
+        border-radius: 10px;
+      }
+
+      .green {
+        background-color: green;
+      }
+
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="out"></div>
+
+    <script>
+      let out = document.querySelector(".out");
+
+      // https://rickandmortyapi.com/api/character?page=1
+
+      function showAll() {
+        fetch("https://rickandmortyapi.com/api/character?page=1")
+          .then((data) => data.json())
+          .then((data) => {
+            render(data.results);
+            console.log(data.results);
+          })
+          .catch((error) => console.log("Помилка" + " " + error));
+
+        return;
+      }
+
+      showAll();
+
+      function render(results) {
+        results.map((item) => {
+          out.append(createCard(item));
+        });
+      }
+
+    //   function alive(item) {
+    //     if (item.status == "Alive") {
+    //       // cardItem.classList.add("green");
+    //       return "green";
+    //     } else {
+    //       // cardItem.classList.add("red");
+    //       return "red";
+    //     }
+    //   }
+
+      function createCard(item) {
+        let cardItem = document.createElement("div");
+        cardItem.classList.add("card", item.status == "Alive" ? "green" : "red");
+
+        let characterName = document.createElement("h1");
+        characterName.innerHTML = `${item.name}`;
+
+        let characterPhoto = document.createElement("img");
+        characterPhoto.src = `${item.image}`;
+        characterPhoto.classList.add("card__img");
+
+        let characterStatus = document.createElement("h3");
+        characterStatus.innerHTML = `${item.status}`;
+
+        let characterspecies = document.createElement("h5");
+        characterspecies.innerHTML = `${item.species}`;
+
+        cardItem.append(
+          characterName,
+          characterPhoto,
+          characterStatus,
+          characterspecies
+        );
+
+        return cardItem;
+      }
+    </script>
+  </body>
 </html>
