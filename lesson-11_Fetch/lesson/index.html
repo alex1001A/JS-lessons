@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        font-size: 16px;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        max-width: 100px;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .card {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 16px;
+        padding: 20px;
+        border: 1px solid aqua;
+        border-radius: 20px;
+      }
+
+      .header__field {
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .header__out {
+        display: inline;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .active {
+        background-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <ol class="save">
+            <li></li>
+        </ol>
+        <header class="header">
+          <div class="header__field">
+            <input class="inp" type="number" />
+          </div>
+          <span class="header__out"></span>
+          <!-- <button class="btn">Show</button> -->
+        </header>
+        <main class="main">
+          <!-- <div class="card">
+                  <img class="card__img" src="" alt="">
+                  <div class="card__content">
+                      <h2 class="card__title"></h2>
+                      <h5 class="card__rate"></h5>
+                  </div>
+              </div> -->
+        </main>
+      </div>
+    </div>
+
+    <script>
+      //https://www.binance.com/bapi/asset/v1/public/asset-service/product/currency
+      let btnShow = document.querySelector(".btn");
+      let main = document.querySelector(".main");
+
+      let out = document.querySelector(".header__out");
+      let ol = document.querySelector(".save");
+      let inp = document.querySelector(".inp");
+
+      let save = []
+
+      //   btnShow.addEventListener("click", () => {
+      //     showAll();
+      //   });
+
+      // btnShow.addEventListener('click', showAll)
+
+      function showAll() {
+        fetch(
+          "https://www.binance.com/bapi/asset/v1/public/asset-service/product/currency"
+        )
+          .then((data) => data.json()) //data - змінна, яку ми створили, яка відповідає за весь масив
+          //   .then((data) => {
+          //     console.log(data.data)
+          //     data.data.map(item => {
+          //         console.log(item);
+          //     })
+          // })
+          .then((data) => {
+            render(data.data);
+          })
+          .catch((error) => console.log("Помилка" + " " + error));
+
+        return;
+      }
+
+      showAll();
+
+      //   function render(data) {
+      //     data.map(item => {
+      //         main.innerHTML += `${item.pair}`
+      //     })
+      //   }
+
+      function render(data) {
+        data.map((item) => {
+          main.append(createCard(item));
+        });
+      }
+
+      //   <div class="card">
+      //         <img class="card__img" src="" alt="">
+      //         <div class="card__content">
+      //             <h2 class="card__title"></h2>
+      //             <h5 class="card__rate"></h5>
+      //         </div>
+      //     </div>
+
+      function createSaveItem(item) {
+        
+        let li = document.createElement('li')
+        li.innerHTML = `${item.res} ${item.symbol}`
+
+        return li
+
+      }
+
+      function createCard(item) {
+        let div = document.createElement("div");
+        div.classList.add("card");
+        div.addEventListener("click", () => {
+          let cards = document.querySelectorAll(".card");
+          cards.forEach((item) => {
+            item.classList.remove("active");
+          });
+
+          div.classList.add("active");
+          multiply();
+          addLi()
+          //   out.innerHTML = `${item.rate} ${item.symbol}`;
+        });
+        
+         function multiply() {
+          out.innerHTML = `${inp.value * item.rate} ${item.symbol}`;
+
+        }
+
+        function addLi() {
+            // ol.innerHTML += `<li>${inp.value * item.rate} ${item.symbol} </li>`;
+            save.push({
+                res: inp.value * item.rate,
+                symbol: item.symbol
+            })
+            console.log(save);
+        }
+
+        let img = document.createElement("img");
+        img.classList.add("card__img");
+        img.src = item.imageUrl;
+
+        let content = document.createElement("div");
+        content.classList.add("card__content");
+
+        let h2 = document.createElement("h2");
+        h2.classList.add("card__title");
+        h2.innerHTML = item.fullName;
+
+        let h3 = document.createElement("h3");
+        h3.classList.add("card__pair");
+        h3.innerHTML = item.pair;
+
+        let h5 = document.createElement("h5");
+        h5.classList.add("card__rate");
+        h5.innerHTML = item.rate + " " + item.symbol;
+
+        content.append(h2, h3, h5);
+        div.append(content, img);
+
+        return div;
+      }
+    </script>
+  </body>
+</html>
