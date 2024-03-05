@@ -109,13 +109,8 @@
           "https://www.binance.com/bapi/asset/v1/public/asset-service/product/currency"
         )
           .then((data) => data.json()) //data - змінна, яку ми створили, яка відповідає за весь масив
-          //   .then((data) => {
-          //     console.log(data.data)
-          //     data.data.map(item => {
-          //         console.log(item);
-          //     })
-          // })
           .then((data) => {
+            console.log(data);
             render(data.data);
           })
           .catch((error) => console.log("Помилка" + " " + error));

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>Test</h1>
+
+    <input type="text" class="inp1">
+    <span>+</span>
+    <input type="text" class="inp2">
+    <button class="btn">calc</button>
+    <div class="out">
+
+    </div>
+
+    <script>
+        let out = document.querySelector('.out')
+        let inp2 = document.querySelector('.inp2')
+        let inp1 = document.querySelector('.inp1')
+        let btn = document.querySelector('.btn')
+        // localStorage.setItem('sasha', 'hello')
+
+        let res = localStorage.getItem('sasha') ? localStorage.getItem('sasha') : 'nothing' // getItem - Отримання ключа
+
+        // console.log(a);
+
+        // out.innerHTML = a
+
+        // console.log(localStorage.getItem('sasha'));
+
+        btn.addEventListener('click', () => {
+
+            let plus = +inp1.value + +inp2.value
+
+            localStorage.setItem('sasha', plus) // setItem - Створення ключа
+
+            console.log(plus);
+            out.innerHTML = plus
+        })
+        
+    </script>
+</body>
+</html>

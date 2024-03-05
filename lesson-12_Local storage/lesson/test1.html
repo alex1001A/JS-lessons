@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>
+        Привіт: <span></span>
+    </h1>
+    <button>Test</button>
+
+    <script>
+        let span = document.querySelector('span')
+        let button = document.querySelector('button')
+
+        localStorage.setItem('name', 'Sasha')
+        
+
+        button.addEventListener('click', () => {
+
+            span.innerHTML = localStorage.getItem('name')
+        })
+        
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+
+        let arr = [
+            {
+                name: 'Sasha',
+                age: 22
+            },
+            {
+                name: 'Sasha1',
+                age: 24
+            },
+            {
+                name: 'Sasha2',
+                age: 2
+            },
+            {
+                name: 'Sasha3',
+                age: 65
+            },
+        ]
+
+        let obj = {
+                name: 'Sasha1',
+                age: 24
+            }
+
+        localStorage.setItem('arr', arr)
+        localStorage.setItem('obj', obj)
+
+        let test = localStorage.setItem('obj', JSON.stringify(obj))
+        let test1 = localStorage.setItem('arr', JSON.stringify(arr))
+
+
+        let parseArr = JSON.parse(localStorage.getItem('arr'))
+
+        console.log(parseArr);
+        console.log(localStorage.getItem('arr'));
+    </script>
+</body>
+
+</html>

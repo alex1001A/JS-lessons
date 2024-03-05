@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h2>Car Shop</h2>
+
+<div class="out">
+
+</div>
+
+
+
+    <script>
+
+        let out  = document.querySelector('.out')
+
+let arr = [
+    {
+        name: 'Mers',
+        age: 1995,
+    },
+    {
+        name: 'BMW',
+        age: 1990,
+    },
+    {
+        name: 'Audi',
+        age: 2005,
+    },
+    {
+        name: 'Bugati',
+        age: 2015,
+    },
+]
+
+let favourite = []
+
+
+arr.map(item => {
+    let h2 = document.createElement('h2')
+    h2.innerHTML = item.name
+    h2.addEventListener('click', () => {
+        favourite.push({
+            name: item.name,
+            age: item.age
+        })
+
+        localStorage.setItem('fav', JSON.stringify(favourite))
+        console.log(favourite);
+    })
+    
+
+    out.append(h2)
+})
+
+
+    </script>
+</body>
+</html>
