@@ -1,0 +1,10 @@
+.section {
+    width: 100px;
+    height: 75px;
+    margin: 10px;
+    background-color: grey;
+}
+
+.red {
+    background-color: red;
+}
