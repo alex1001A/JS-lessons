@@ -18,17 +18,23 @@
     transition: all 0.8s;
 }
 
-.active {
+.non-active {
+    left: 1px;
+}
 
+.active {
     left: 50px;
     background-color: rgb(38, 10, 64);
 }
 
-
-.light {
+/* .light {
     background-color: aqua;
-}
+} */
 
 .dark {
     background-color: rgb(20, 78, 78);
+}
+
+body {
+    background-color: aqua;
 }

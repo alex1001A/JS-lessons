@@ -5,21 +5,32 @@ let out = document.querySelector('.out')
 
 let count = document.querySelector('.count')
 
-let newArr = []
+let newArr = localStorage.getItem('listArr') ? JSON.parse(localStorage.getItem('listArr')) : []
 
 btn.addEventListener('click', () => {
+
     newArr.push(inp.value)
-    console.log(newArr);
     localStorage.setItem('listArr', JSON.stringify(newArr))
 
-    let parseArr = JSON.parse(localStorage.getItem('listArr'))
+    createListItem()
     
+    inp.value = ''
+    
+})
+
+createListItem()
+
+function createListItem() {
     out.innerHTML = ''
-    
+    let parseArr = JSON.parse(localStorage.getItem('listArr'))
+
     parseArr.map(item => {
         let li = document.createElement('li')
         li.innerHTML = item
-
+        
         out.append(li)
     })
-})
+
+    console.log(parseArr);
+}
+

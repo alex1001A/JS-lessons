@@ -1,8 +1,6 @@
 let div = document.querySelector(".div");
 let circkle = document.querySelector(".circkle");
 
-localStorage.setItem("theme", "light");
-
 let body = document.querySelector(".body");
 body.classList.add(localStorage.getItem("theme"));
 
