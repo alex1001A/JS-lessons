@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: relative;
+        }
+
+        .box:first-child {
+            background-color: green;
+            margin-left: auto;
+        }
+
+        .box:last-child {
+            background-color: green;
+            margin-right: auto;
+        }
+
+        .box-position {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: red;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .row {
+            /* top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute; */
+            display: flex;
+            gap: 10px;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+    1: Червоний по центру Позішеном <br>
+    2: в рядок і пл центру єкрану
+
+    <div class="box-position">
+
+    </div>
+
+
+    <div class="row">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+
+</html>
