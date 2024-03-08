@@ -61,6 +61,8 @@
             }
         }
 
+        let parseArr = []
+
         function createCard(data) {
 
             let sample = data.results[0]
@@ -68,12 +70,19 @@
             let lastName = sample.name.last
             let photo = sample.picture.medium
 
+            let arr = []
+
+
             let card = document.createElement('div')
             card.classList.add('card')
             card.addEventListener('click', () => {
-                addToFav()
-            })
+                arr.push(data.results[0])
+                localStorage.setItem('userInfo', JSON.stringify(data.results[0]))
+                console.log(arr);
 
+                parseArr = JSON.parse(localStorage.getItem('userInfo'))
+                console.log(parseArr);
+            })
             let humanName = document.createElement('h3')
             humanName.innerHTML = `${name}`
 
@@ -85,15 +94,15 @@
 
             card.append(humanName, humanLastName, humanPhoto)
             out.append(card)
+
+
         }
 
         getPerson()
 
-        // btn.addEventListener('click', () => {
-        //     addToFav()
-        // })
-
-        // let arr = []
+        btn.addEventListener('click', () => {
+            createCard(parseArr)
+        })
 
         // function addToFav(data) {
         //     arr.push(data.results[0].name.first)
@@ -102,7 +111,7 @@
         //     })
         //     console.log(arr);
         // }
-        
+
         // localStorage.setItem('userInfo', createCard())
 
 
