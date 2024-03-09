@@ -70,8 +70,8 @@
             let lastName = sample.name.last
             let photo = sample.picture.medium
 
-            let arr = []
-
+            let arr = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : []
+            
 
             let card = document.createElement('div')
             card.classList.add('card')
@@ -79,10 +79,13 @@
                 arr.push(data.results[0])
                 localStorage.setItem('userInfo', JSON.stringify(data.results[0]))
                 console.log(arr);
+                count.innerHTML = +count.innerHTML + 1
+                console.log(count);
 
                 parseArr = JSON.parse(localStorage.getItem('userInfo'))
                 console.log(parseArr);
             })
+            
             let humanName = document.createElement('h3')
             humanName.innerHTML = `${name}`
 

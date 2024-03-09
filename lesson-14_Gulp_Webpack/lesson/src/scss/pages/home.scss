@@ -1,0 +1,16 @@
+$red: red;
+$blue: blue;
+
+body {
+    background-color: aquamarine;
+}
+
+h1 {
+    color: $red;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    color: $blue;
+}
