@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        .out-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+  </head>
+  <body>
+    <h3>https://randomuser.me/api/</h3>
+    <ol>
+      <li>Вивести 10 юзерів</li>
+      <li>По кліку ми зберігаемо</li>
+
+      <li>Показати збереженних</li>
+    </ol>
+
+    <div class="favourite">
+      <div class="count">0</div>
+      <button class="btn">show</button>
+    </div>
+
+    <main>
+      <div class="out-cards"></div>
+      <div class="out-favourite-cards"></div>
+    </main>
+
+    <script>
+      let btn = document.querySelector(".btn");
+      let out1 = document.querySelector(".out-cards");
+      let out2 = document.querySelector(".out-favourite-cards");
+      let count = document.querySelector(".count");
+    //   let favArr = localStorage.getItem('Array') ? localStorage.getItem('Array') : []
+
+      function getApi() {
+        fetch("https://randomuser.me/api/")
+          .then((data) => data.json())
+          .then((data) => {
+            console.log(data);
+            out1.append(createCard(data));
+          });
+      }
+
+      function createCard(user) {
+        let card = document.createElement("div");
+        card.classList.add('card')
+        card.addEventListener('click', () => {
+            console.log('hi');
+        })
+
+        let photo = document.createElement("img");
+        photo.src = user.results[0].picture.medium;
+
+        let name = document.createElement("h2");
+        name.innerHTML = user.results[0].name.first;
+
+        let surName = document.createElement("h3");
+        surName.innerHTML = user.results[0].name.last;
+
+        let btnFav = document.createElement("button");
+        btnFav.innerHTML = 'add ♥'
+
+
+        card.append(photo, name, surName, btnFav);
+
+        return card;
+      }
+
+      function forArr() {
+        for (let i = 0; i < 9; i++) {
+          getApi();
+        }
+      }
+
+      function name(params) {
+        
+      }
+
+      forArr()
+    </script>
+  </body>
+</html>
