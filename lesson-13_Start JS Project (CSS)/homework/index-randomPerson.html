@@ -1,96 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
 
-    <style>
-        .out-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
 
-        .card {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            border: 1px solid black;
-        }
-    </style>
-  </head>
-  <body>
-    <h3>https://randomuser.me/api/</h3>
-    <ol>
-      <li>Вивести 10 юзерів</li>
-      <li>По кліку ми зберігаемо</li>
+  <style>
+    .out-cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 40px;
+    }
 
-      <li>Показати збереженних</li>
-    </ol>
+    .card {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      border: 1px solid black;
+      background-color: #fff;
+    }
 
-    <div class="favourite">
-      <div class="count">0</div>
-      <button class="btn">show</button>
+    img {
+      width: 100px;
+      align-self: center;
+    }
+
+    .out-favourite-cards {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+
+    }
+
+  </style>
+</head>
+
+<body>
+  <h3>https://randomuser.me/api/</h3>
+  <ol>
+    <li>Вивести 10 юзерів</li>
+    <li>По кліку ми зберігаемо</li>
+
+    <li>Показати збереженних</li>
+  </ol>
+
+  <div class="favourite">
+    <div class="count">0</div>
+    <button class="btn">show</button>
+  </div>
+
+  <main>
+    <div class="out-cards"></div>
+    <div class="out-favourite-cards">
     </div>
+    <div class="dima">hello</div>
+  </main>
 
-    <main>
-      <div class="out-cards"></div>
-      <div class="out-favourite-cards"></div>
-    </main>
+  <script>
+    let btn = document.querySelector(".btn");
+    btn.addEventListener('click', () => {
+      // out1.innerHTML = ''
+      newArr.map(item => {
+        out2.append(createCard(item))
+      })
+    })
 
-    <script>
-      let btn = document.querySelector(".btn");
-      let out1 = document.querySelector(".out-cards");
-      let out2 = document.querySelector(".out-favourite-cards");
-      let count = document.querySelector(".count");
-    //   let favArr = localStorage.getItem('Array') ? localStorage.getItem('Array') : []
+    let out1 = document.querySelector(".out-cards");
+    let out2 = document.querySelector(".out-favourite-cards");
+    let count = document.querySelector(".count");
+    let newArr = []
+    // let favArr = localStorage.getItem('FavPerson') ? JSON.parse(localStorage.getItem('FavPerson')) : []
 
-      function getApi() {
-        fetch("https://randomuser.me/api/")
-          .then((data) => data.json())
-          .then((data) => {
-            console.log(data);
-            out1.append(createCard(data));
+    function getApi() {
+      fetch("https://randomuser.me/api/?results=15")
+        .then((data) => data.json())
+        .then((data) => {
+          // out1.append(createCard(data));
+          console.log(data.results);
+          data.results.forEach(element => {
+            createCard(element);
           });
-      }
+        });
+    }
 
-      function createCard(user) {
-        let card = document.createElement("div");
-        card.classList.add('card')
-        card.addEventListener('click', () => {
-            console.log('hi');
-        })
+    getApi()
 
-        let photo = document.createElement("img");
-        photo.src = user.results[0].picture.medium;
+    function createCard(user) {
+      let card = document.createElement("div");
+      card.classList.add('card')
 
-        let name = document.createElement("h2");
-        name.innerHTML = user.results[0].name.first;
+      let photo = document.createElement("img");
+      photo.src = user.results[0].picture.medium;
 
-        let surName = document.createElement("h3");
-        surName.innerHTML = user.results[0].name.last;
+      let name = document.createElement("h2");
+      name.innerHTML = user.results[0].name.first;
 
-        let btnFav = document.createElement("button");
-        btnFav.innerHTML = 'add ♥'
+      let surName = document.createElement("h3");
+      surName.innerHTML = user.results[0].name.last;
 
+      let btnFav = document.createElement("button");
+      btnFav.innerHTML = 'add ♥'
+      btnFav.addEventListener('click', () => {
+        newArr.push(user)
+        localStorage.setItem('FavPerson', JSON.stringify(user))
+        count.innerHTML = newArr.length
+        console.log(newArr);
+      })
 
-        card.append(photo, name, surName, btnFav);
+      card.append(photo, name, surName, btnFav);
 
-        return card;
-      }
+      return card;
+    }
 
-      function forArr() {
-        for (let i = 0; i < 9; i++) {
-          getApi();
-        }
-      }
+    // function forArr() {
+    //   for (let i = 0; i < 15; i++) {
+    //     getApi();
+    //   }
+    // }
 
-      function name(params) {
-        
-      }
+    // forArr()
+  </script>
+</body>
 
-      forArr()
-    </script>
-  </body>
 </html>
