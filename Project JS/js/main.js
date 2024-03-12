@@ -3,9 +3,6 @@ fetch('https://newsapi.org/v2/everything?q=tesla&from=2024-02-11&sortBy=publishe
 .then(data => {
     console.log(data);
     let img = document.querySelector('.img')
-    img.src = data.articles.urlToImage
+    img.src = `${data.articles[45].urlToImage}`
     console.log(data.articles);
 })
-
-let a = 'hi'
-console.log(a);
