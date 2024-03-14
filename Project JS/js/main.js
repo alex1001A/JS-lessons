@@ -1,8 +1,38 @@
-fetch('https://newsapi.org/v2/everything?q=tesla&from=2024-02-11&sortBy=publishedAt&apiKey=1050bdd57e234f9ab1904f7d129a59f2')
-.then(data => data.json())
-.then(data => {
-    console.log(data);
-    let img = document.querySelector('.img')
-    img.src = `${data.articles[45].urlToImage}`
-    console.log(data.articles);
-})
+let containerOutCards = document.querySelector('.hero__container') 
+
+function getApi() {
+  fetch(
+    "https://www.binance.com/bapi/asset/v1/public/asset-service/product/currency"
+  )
+    .then((data) => data.json())
+    .then((data) => {
+        renderCards(data.data)
+    });
+}
+
+function createCard(item) {
+  let cardWrapper = document.createElement("div");
+  cardWrapper.classList.add('card')
+
+  let cardTitle = document.createElement("h3");
+  cardTitle.innerHTML = `Currency: ${item.fullName}`;
+
+  let cardImg = document.createElement('img')
+  cardImg.classList.add('card_img')
+  cardImg.src = item.imageUrl
+
+  cardWrapper.append(cardTitle, cardImg);
+
+  return cardWrapper
+}
+
+function renderCards(data) {
+  data.map(item => {
+    if (item.fullName !== null) {
+        containerOutCards.append(createCard(item))        
+    } 
+    console.log(item);
+  });
+}
+
+getApi();
