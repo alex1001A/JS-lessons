@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+<div class="out"></div>
+
+    <script>
+
+        let out = document.querySelector('.out')
+
+        let arr = [
+            {
+                name: 'sasha 0',
+                age: 1,
+            },
+            {
+                name: 'sasha 1',
+                age: 2,
+            },
+            {
+                name: 'sasha 2',
+                age: 3,
+            },
+            {
+                name: 'sasha 3',
+                age: 4,
+            },
+        ]
+
+
+        arr.map((item, index) => {
+            let div = document.createElement('div')
+
+            let span = document.createElement('span')
+            span.innerHTML = item.name
+
+            let btnRemove = document.createElement('button')
+            btnRemove.innerHTML = 'X'
+            btnRemove.addEventListener('click', () => {
+                arr.splice(index, 1)
+                console.log(arr);
+            })
+
+            div.append(span, btnRemove)
+
+            out.append(div)
+        })
+
+    </script>
+</body>
+
+</html>

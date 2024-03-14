@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        let user = [
+            {
+                name: 'Alex', 
+                age: 12
+            }
+        ]
+
+        //-------------------------Функціональний компонент
+
+        function userName(user) {
+            console.log(user.name);
+        }
+
+        // userName(user[0])
+
+        //-------------------------Класовий компонент
+
+        class createUser {
+            constructor(item){
+                this.name = item.name
+            }
+            create() {
+                console.log(this.name);
+            }
+        }
+
+        let User = new createUser(user[0])
+
+        console.log(User);
+
+    </script>
+</body>
+</html>
