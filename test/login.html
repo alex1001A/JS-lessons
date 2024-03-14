@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <label for="username">Username:</label>
+    <input type="text" id="username" /><br /><br />
+    <label for="password">Password:</label>
+    <input type="text" id="password" /><br /><br />
+    <button class="btn">Login</button>
+    <p id="message"></p>
+
+    <script>
+      let btn = document.querySelector(".btn");
+      btn.addEventListener("click", () => {
+        login();
+      });
+
+      let usernameInput = document.getElementById("username").value;
+      let passwordInput = document.getElementById("password").value;
+      let messageElement = document.getElementById("message");
+
+      const users = [
+        {
+          username: "admin",
+          password: "admin123",
+          role: "admin",
+        },
+        {
+          username: "user",
+          password: "user123",
+          role: "user",
+        },
+      ];
+
+      function login() {
+        let usernameInput = document.getElementById("username").value;
+        let passwordInput = document.getElementById("password").value;
+        let messageElement = document.getElementById("message");
+
+        let role = validateCredentials(usernameInput, passwordInput);
+
+        if (role === "admin") {
+          messageElement.innerHTML = "Welcome, Administrator!";
+        } else if (role === "user") {
+          messageElement.innerHTML = "Welcome, User!";
+        } else if (role === "invalid") {
+          messageElement.innerHTML = "Invalid credentials.";
+        }
+      }
+      
+      function validateCredentials(username, password) {
+        for (let i = 0; i < users.length; i++) {
+          if (
+            users[i].username === username &&
+            users[i].password === password
+          ) {
+            return users[i].role;
+          }
+        }
+       
+        return "invalid";
+      }
+
+    </script>
+  </body>
+</html>
