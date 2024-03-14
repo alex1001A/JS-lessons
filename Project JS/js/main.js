@@ -18,10 +18,19 @@ function createCard(item) {
   cardTitle.innerHTML = `Currency: ${item.fullName}`;
 
   let cardImg = document.createElement('img')
-  cardImg.classList.add('card_img')
+  cardImg.classList.add('card__img')
   cardImg.src = item.imageUrl
+//   whetCardIsHovered(item.cardImg, index)
 
-  cardWrapper.append(cardTitle, cardImg);
+  let cardPairs = document.createElement('p')
+  cardPairs.classList.add('card__pair')
+  cardPairs.innerHTML = item.pair
+
+  let cardRate = document.createElement('p')
+  cardRate.classList.add('card__rate')
+  cardRate.innerHTML = `${item.rate} ${item.symbol}`
+
+  cardWrapper.append(cardTitle, cardImg, cardPairs, cardRate);
 
   return cardWrapper
 }
@@ -34,5 +43,13 @@ function renderCards(data) {
     console.log(item);
   });
 }
+
+// function whetCardIsHovered(someClassVar, index) {
+//     if (card.hovered) {
+//         someClassVar.classList.add('card__img_hover')
+//     } else {
+//         someClassVar.classList.remove('card__img_hover')
+//     }
+// }
 
 getApi();

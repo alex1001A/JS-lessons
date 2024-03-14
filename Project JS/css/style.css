@@ -11,11 +11,15 @@
 .container {
     max-width: 1440px;
     width: 100%;
-    background-color: seagreen;
-    height: 100vh;
     display: grid;
     gap: 30px;
     grid-template-columns: repeat(4, 1fr);
+    padding: 0 5%;
+}
+
+.hero__container {
+    padding-top: 40px;
+    margin: 0 auto;
 }
 
 /* Header */
@@ -26,6 +30,30 @@
 
 /* Main */
 
+.hero {
+    background-color: seagreen;
+}
+
 .card {
     border: 1px solid black;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    background-color: sandybrown;
+    transition: 1s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: firebrick;
+    opacity: 0.8;
+    transition: 1s ease;
+}
+
+.card__img_hover {
+    position: absolute;
+    
 }
