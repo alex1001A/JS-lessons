@@ -28,6 +28,10 @@
     background-color: salmon;
 }
 
+.input-box {
+    display: flex;
+}
+
 /* Main */
 
 .hero {
@@ -57,3 +61,4 @@
     position: absolute;
     
 }
+

@@ -1,4 +1,5 @@
 let containerOutCards = document.querySelector('.hero__container') 
+let searcBtn = document.querySelector('.input-box__button') 
 
 function getApi() {
   fetch(
@@ -20,7 +21,6 @@ function createCard(item) {
   let cardImg = document.createElement('img')
   cardImg.classList.add('card__img')
   cardImg.src = item.imageUrl
-//   whetCardIsHovered(item.cardImg, index)
 
   let cardPairs = document.createElement('p')
   cardPairs.classList.add('card__pair')
@@ -40,16 +40,31 @@ function renderCards(data) {
     if (item.fullName !== null) {
         containerOutCards.append(createCard(item))        
     } 
-    console.log(item);
   });
 }
+  
+  getApi();
 
-// function whetCardIsHovered(someClassVar, index) {
-//     if (card.hovered) {
-//         someClassVar.classList.add('card__img_hover')
-//     } else {
-//         someClassVar.classList.remove('card__img_hover')
-//     }
-// }
-
-getApi();
+  function searchCardByName(name) {
+    // Очищаем контейнер перед выводом результатов поиска
+    containerOutCards.innerHTML = '';
+  
+    // Проходим по всем элементам данных
+    data.forEach(item => {
+      // Проверяем, совпадает ли значение fullName с введенным именем
+      if (item.fullName && item.fullName.toLowerCase().includes(name.toLowerCase())) {
+        containerOutCards.append(createCard(item));
+      }
+    });
+  }
+  
+  // Обработчик события для кнопки поиска
+  searcBtn.addEventListener('click', function() {
+    let searcInput = document.querySelector('.input-box__input')
+    let searchInputValue = searcInput.value.trim(); // Получаем значение из инпута и убираем пробелы по краям
+  
+    // Если введенное значение не пустое, вызываем функцию поиска карточки
+    if (searchInputValue !== '') {
+      searchCardByName(searchInputValue);
+    }
+  });
