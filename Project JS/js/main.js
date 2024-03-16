@@ -7,9 +7,11 @@ function getApi() {
   )
     .then((data) => data.json())
     .then((data) => {
-        renderCards(data.data)
+        // renderCards(data.data)
+        console.log(data.data);
     });
 }
+
 
 function createCard(item) {
   let cardWrapper = document.createElement("div");
