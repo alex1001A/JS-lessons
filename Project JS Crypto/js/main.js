@@ -1,7 +1,12 @@
 let containerOutCards = document.querySelector('.hero__container') 
 let searcBtn = document.querySelector('.input-box__button') 
+let countBasketItems = document.querySelector('.header__basket')
 
-function getApi() {
+let arrayForBasket = JSON.parse(localStorage.getItem('basket')) || []
+
+console.log(arrayForBasket);
+
+function showAllCards() {
   fetch(
     "https://www.binance.com/bapi/asset/v1/public/asset-service/product/currency"
   )
@@ -11,7 +16,6 @@ function getApi() {
         console.log(data.data);
     });
 }
-
 
 function createCard(item) {
   let cardWrapper = document.createElement("div");
@@ -32,7 +36,13 @@ function createCard(item) {
   cardRate.classList.add('card__rate')
   cardRate.innerHTML = `${item.rate} ${item.symbol}`
 
-  cardWrapper.append(cardTitle, cardImg, cardPairs, cardRate);
+  let addToFavIcon = document.createElement('div')
+  addToFavIcon.classList.add('card__fav-btn')
+  addToFavIcon.addEventListener('click', () => {
+    addToBasketArr(item)
+  })
+
+  cardWrapper.append(cardTitle, cardImg, cardPairs, cardRate, addToFavIcon);
 
   return cardWrapper
 }
@@ -44,29 +54,30 @@ function renderCards(data) {
     } 
   });
 }
-  
-  getApi();
 
-  // function searchCardByName(data) {
-  //   // Очищаем контейнер перед выводом результатов поиска
-  //   containerOutCards.innerHTML = '';
-  
-  //   // Проходим по всем элементам данных
-  //   data.forEach(item => {
-  //     // Проверяем, совпадает ли значение fullName с введенным именем
-  //     if (item.fullName && item.fullName.toLowerCase().includes(name.toLowerCase())) {
-  //       containerOutCards.append(createCard(item));
-  //     }
-  //   });
-  // }
-  
-  // // Обработчик события для кнопки поиска
-  // searcBtn.addEventListener('click', function() {
-  //   let searcInput = document.querySelector('.input-box__input')
-  //   let searchInputValue = searcInput.value.trim(); // Получаем значение из инпута и убираем пробелы по краям
-  
-  //   // Если введенное значение не пустое, вызываем функцию поиска карточки
-  //   if (searchInputValue !== '') {
-  //     searchCardByName(searchInputValue);
-  //   }
-  // });
+showAllCards();
+
+function addToBasketArr(item) {
+  arrayForBasket.push(item)
+  saveToLocaleStorage()
+  updateCountIntoBasket()
+}
+
+function updateCountIntoBasket() {
+  countBasketItems.innerHTML = arrayForBasket.length
+}
+
+function saveToLocaleStorage() {
+  localStorage.setItem('basket', JSON.stringify(arrayForBasket))
+}
+
+function createBasket() {
+  let basketWrapper = document.createElement('div')
+
+  let basketTitle = document.createElement('h2')
+
+  let basketList = document.createElement('ul')
+}
+
+
+
