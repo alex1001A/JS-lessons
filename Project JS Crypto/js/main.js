@@ -1,10 +1,11 @@
 let containerOutCards = document.querySelector('.hero__container') 
 let searcBtn = document.querySelector('.input-box__button') 
 let countBasketItems = document.querySelector('.header__basket')
+countBasketItems.addEventListener('click', () => {
+  createBasket()
+})
 
 let arrayForBasket = JSON.parse(localStorage.getItem('basket')) || []
-
-console.log(arrayForBasket);
 
 function showAllCards() {
   fetch(
@@ -13,7 +14,7 @@ function showAllCards() {
     .then((data) => data.json())
     .then((data) => {
         renderCards(data.data)
-        console.log(data.data);
+        // console.log(data.data);
     });
 }
 
@@ -73,10 +74,28 @@ function saveToLocaleStorage() {
 
 function createBasket() {
   let basketWrapper = document.createElement('div')
+  basketWrapper.classList.add('basket')
 
   let basketTitle = document.createElement('h2')
+  basketTitle.classList.add('basket__title')
+  basketTitle.innerHTML = 'Обране'
 
   let basketList = document.createElement('ul')
+  basketList.classList.add('basket__list')
+  
+
+  basketList.append()
+
+  basketWrapper.append(basketTitle, basketList)
+
+  containerOutCards.append(basketWrapper)
+
+  return basketWrapper
+}
+
+function createBasketListItem() {
+  
+  
 }
 
 
