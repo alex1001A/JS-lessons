@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch</title>
+  </head>
+  <body>
+    <div class="out"></div>
+
+    <script>
+      // function getApi() {
+      //     fetch('https://randomuser.me/api/')
+      //     .then(response => response.json())
+      //     .then(data => {
+      //         console.log(data);
+      //     })
+      // }
+
+      // getApi()
+
+      let url = "https://randomuser.me/api/";
+
+      let out = document.querySelector('.out')
+
+      let array = getApi();
+
+      async function getApi() {
+        let api = await fetch(url);
+
+        let response = await api.json();
+        console.log(response);
+
+        return response;
+      }
+
+      console.log(array);
+
+      // getApi()
+    //   function createCard() {
+    //       array.map(item => {
+    //         let h1 = document.createElement("h1");
+    //         h1.innerHTML = item.name;
+    
+    //         out.append(h1)
+    
+    //         return h1
+    //       });
+    //   }
+
+    //   createCard()
+    </script>
+  </body>
+</html>
