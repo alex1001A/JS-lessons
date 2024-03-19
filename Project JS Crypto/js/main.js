@@ -1,11 +1,24 @@
-let containerOutCards = document.querySelector('.hero__container') 
-let searcBtn = document.querySelector('.input-box__button') 
-let countBasketItems = document.querySelector('.header__basket')
-countBasketItems.addEventListener('click', () => {
-  createBasket()
-})
+let containerOutCards = document.querySelector('.hero__container')
+let searcBtn = document.querySelector('.input-box__button')
 
 let arrayForBasket = JSON.parse(localStorage.getItem('basket')) || []
+// let arrayForBasket = []
+
+let basket = document.querySelector('.header__basket')
+basket.classList.add('header__basket')
+
+let basketCloseBtn = document.querySelector('.header__basket-close-btn')
+basketCloseBtn.addEventListener('click', () => {
+  basket.style.display = 'none'
+})
+
+let countBasketItems = document.querySelector('.header__basket-btn')
+countBasketItems.classList.add('header__basket-btn')
+countBasketItems.innerHTML = arrayForBasket.length
+countBasketItems.addEventListener('click', () => {
+  basket.style.display = 'block'
+  createBasket()
+})
 
 function showAllCards() {
   fetch(
@@ -13,8 +26,8 @@ function showAllCards() {
   )
     .then((data) => data.json())
     .then((data) => {
-        renderCards(data.data)
-        // console.log(data.data);
+      renderCards(data.data)
+      // console.log(data.data);
     });
 }
 
@@ -51,8 +64,8 @@ function createCard(item) {
 function renderCards(data) {
   data.map(item => {
     if (item.fullName !== null) {
-        containerOutCards.append(createCard(item))        
-    } 
+      containerOutCards.append(createCard(item))
+    }
   });
 }
 
@@ -73,30 +86,9 @@ function saveToLocaleStorage() {
 }
 
 function createBasket() {
-  let basketWrapper = document.createElement('div')
-  basketWrapper.classList.add('basket')
 
-  let basketTitle = document.createElement('h2')
-  basketTitle.classList.add('basket__title')
-  basketTitle.innerHTML = 'Обране'
-
-  let basketList = document.createElement('ul')
-  basketList.classList.add('basket__list')
-  
-
-  basketList.append()
-
-  basketWrapper.append(basketTitle, basketList)
-
-  containerOutCards.append(basketWrapper)
-
-  return basketWrapper
 }
 
-function createBasketListItem() {
-  
-  
-}
 
 
 
