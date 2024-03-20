@@ -40,7 +40,7 @@
 
       // console.log(uniqueArray);
 
-      //Task 3 
+      //Task 3
 
       // const students = [
       //   { name: "alex", age: 20 },
@@ -61,9 +61,17 @@
 
       // console.log(newObj);
 
-            //Task 4 Var 1
+      //Task 4 Var 1
 
+      let date = new Date();
 
+      const hours = date.getHours() // Получаем текущие часы и форматируем их
+      const minutes = date.getMinutes()// Получаем текущие минуты и форматируем их
+      const seconds = date.getSeconds()
+
+      const currentTime = `${hours}:${minutes}:${seconds}`; // Соединяем часы, минуты и секунды в строку
+
+      console.log(currentTime);
     </script>
   </body>
 </html>
