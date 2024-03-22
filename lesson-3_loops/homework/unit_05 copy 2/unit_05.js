@@ -77,10 +77,12 @@ function t5() {
   for (let i = 1; i < 18; i++) {
     if (i % 2 === 0) {
       i = i + '_' + '**'
+      out5.innerHTML += `${i}`
     } else {
       i = i + '_' + '*'
+      out5.innerHTML += `${i}`
     }
-    out5.innerHTML += `${i}`
+    
   }
 }
 
@@ -94,9 +96,15 @@ btn5.onclick = () => {
 //
 
 let out6 = document.querySelector(".out-6");
-let btn6 = document.querySelector(".b-6");
 
 let stars = "******";
+
+function t6() {
+  for (let i = 0; i < 3; i++) {
+    const element = array[i];
+    
+  }
+}
 
 document.querySelector(".b-6").onclick = t6;
 
