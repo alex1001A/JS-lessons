@@ -6,7 +6,6 @@
     <title>Document</title>
 
     <style>
-
       .login-wrapper {
         display: none;
         position: absolute;
@@ -61,11 +60,9 @@
       #message {
         margin-top: 300px;
       }
-      
     </style>
   </head>
   <body>
-
     <div class="login-bnt">Login</div>
 
     <div class="login-wrapper">
@@ -80,84 +77,90 @@
     <p id="message"></p>
 
     <script>
-      let loginWindow = document.querySelector('.login-wrapper')
+      let loginWindow = document.querySelector(".login-wrapper");
 
+      function createCard() {
+        let authorizationBtn = document.querySelector(".login-bnt");
+        authorizationBtn.addEventListener("click", () => {
+          loginWindow.style.display = "block";
+        });
 
-      let authorizationBtn = document.querySelector(".login-bnt");
-      authorizationBtn.addEventListener('click', () => {
-        loginWindow.style.display = 'block'
-      })
+        let closeBtn = document.querySelector(".close");
+        closeBtn.addEventListener("click", () => {
+          loginWindow.style.display = "none";
+        });
 
-      let closeBtn = document.querySelector(".close");
-      closeBtn.addEventListener('click', () => {
-        loginWindow.style.display = 'none'
-      })
+        let btnLogin = document.querySelector(".btn");
+        btnLogin.addEventListener("click", () => {
+          login();
+        });
 
-      let btnLogin = document.querySelector(".btn");
-      btnLogin.addEventListener("click", () => {
-        login();
-      });
+        const users = [
+          {
+            username: "admin",
+            password: "admin123",
+            role: "admin",
+          },
+          {
+            username: "user1",
+            password: "user1",
+            role: "user",
+          },
+          {
+            username: "user2",
+            password: "user12",
+            role: "user",
+          },
+          {
+            username: "user3",
+            password: "user123",
+            role: "user",
+          },
+          {
+            username: "user4",
+            password: "user1234",
+            role: "user",
+          },
+        ];
 
-      const users = [
-        {
-          username: "admin",
-          password: "admin123",
-          role: "admin",
-        },
-        {
-          username: "user1",
-          password: "user1",
-          role: "user",
-        },
-        {
-          username: "user2",
-          password: "user12",
-          role: "user",
-        },
-        {
-          username: "user3",
-          password: "user123",
-          role: "user",
-        },
-        {
-          username: "user4",
-          password: "user1234",
-          role: "user",
-        },
-      ];
+        function login() {
+          let userNameInput = document.getElementById("username");
+          let userPasswordInput = document.getElementById("password");
+          let textMessage = document.getElementById("message");
 
-      function login() {
-        let userNameInput = document.getElementById("username");
-        let userPasswordInput = document.getElementById("password");
-        let textMessage = document.getElementById("message");
+          let role = validateCredentials(
+            userNameInput.value,
+            userPasswordInput.value
+          );
 
-        let role = validateCredentials(userNameInput.value, userPasswordInput.value);
-
-        if (role === "admin") {
-          textMessage.innerHTML = `Welcome Administrator`;
-          loginWindow.style.display = 'none'
-        } else if (role === "user") {
-          textMessage.innerHTML = `Welcome user`;
-          loginWindow.style.display = 'none'
-        } else {
-          textMessage.innerHTML = `Let's Sign Up`;
-        }
-
-        userNameInput.value = ''
-        userPasswordInput.value = ''
-      }
-
-      function validateCredentials(username, password) {
-        for (let i = 0; i < users.length; i++) {
-          if (
-            users[i].username === username &&
-            users[i].password === password
-          ) {
-            return users[i].role;
+          if (role === "admin") {
+            textMessage.innerHTML = `Welcome Administrator`;
+            loginWindow.style.display = "none";
+          } else if (role === "user") {
+            textMessage.innerHTML = `Welcome user`;
+            loginWindow.style.display = "none";
+          } else {
+            textMessage.innerHTML = `Let's Sign Up`;
           }
+
+          userNameInput.value = "";
+          userPasswordInput.value = "";
         }
-        return "invalid";
+
+        function validateCredentials(username, password) {
+          for (let i = 0; i < users.length; i++) {
+            if (
+              users[i].username === username &&
+              users[i].password === password
+            ) {
+              return users[i].role;
+            }
+          }
+          return "invalid";
+        }
       }
+
+      createCard()
     </script>
   </body>
 </html>
