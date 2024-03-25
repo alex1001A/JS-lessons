@@ -75,12 +75,10 @@ let btn5 = document.querySelector(".b-5");
 
 function t5() {
   for (let i = 1; i < 18; i++) {
-    if (i % 2 === 0) {
-      i = i + '_' + '**'
-      out5.innerHTML += `${i}`
+    if (i % 2 == 0) {
+      out5.innerHTML += `${i}_**`
     } else {
-      i = i + '_' + '*'
-      out5.innerHTML += `${i}`
+      out5.innerHTML += `${i}_*`
     }
     
   }
@@ -96,13 +94,13 @@ btn5.onclick = () => {
 //
 
 let out6 = document.querySelector(".out-6");
+let inp6 = document.querySelector(".i-6");
 
 let stars = "******";
 
 function t6() {
-  for (let i = 0; i < 3; i++) {
-    const element = array[i];
-    
+  for (let i = 0; i < inp6.value; i++) {
+    out6.innerHTML += `${stars} <br>`
   }
 }
 
@@ -117,6 +115,13 @@ document.querySelector(".b-6").onclick = t6;
 
 let out7 = document.querySelector(".out-7");
 let btn7 = document.querySelector(".b-7");
+let inp7 = document.querySelector(".i-7");
+
+function t7() {
+  for (let i = inp7.value; i >= 0; i--) {
+    out7.innerHTML += `${i}_`
+  }  
+}
 
 btn7.onclick = () => {
   t7();
@@ -132,6 +137,14 @@ btn7.onclick = () => {
 
 let out8 = document.querySelector(".out-8");
 let btn8 = document.querySelector(".b-8");
+let inp81 = document.querySelector(".i-81");
+let inp82 = document.querySelector(".i-82");
+
+function t8() {
+  for (let i = inp81.value; i <= inp82.value; i++) {
+    out8.innerHTML += `${i}_`
+  }
+}
 
 btn8.onclick = () => {
   t8();
@@ -149,6 +162,20 @@ btn8.onclick = () => {
 
 let btn9 = document.querySelector(".b-9");
 let out9 = document.querySelector(".out-9");
+let inp91 = document.querySelector(".i-91");
+let inp92 = document.querySelector(".i-92");
+
+function t9() {
+  if (inp91.value > inp92.value) {
+    for (let i = inp92.value; i <= inp91.value; i++) {
+      out9.innerHTML += `${i}_`
+    }
+  } else {
+    for (let i = inp91.value; i <= inp92.value; i++) {
+      out9.innerHTML += `${i}_`
+    }
+  }
+}
 
 btn9.onclick = () => {
   t9();
@@ -160,6 +187,12 @@ btn9.onclick = () => {
 
 let btn10 = document.querySelector(".b-10");
 let out10 = document.querySelector(".out-10");
+
+function t10() {
+  for (let i = 1950; i <= 1970; i = i + 2) {
+    out10.innerHTML += i + '_'
+  }
+}
 
 btn10.onclick = () => {
   t10();
@@ -174,7 +207,14 @@ btn10.onclick = () => {
 //     one_3_4_two_
 
 let out11 = document.querySelector(".out-11");
-let btn11 = document.querySelector(".out-11");
+let btn11 = document.querySelector(".b-11");
+let divs = document.querySelectorAll(".div-11");
+
+function t11() {
+  divs.forEach(div => {
+    out11.innerHTML += `${div.innerHTML}_`
+  })
+}
 
 btn11.onclick = () => {
   t11();
@@ -186,14 +226,28 @@ btn11.onclick = () => {
 // перебрать их с помощью цикла. Обращение к div выглядит так elem[i]
 // применить к каждому elem[i].style.background = ‘orange’
 
-function t12() {}
+let btn12 = document.querySelector('.b-12')
+let divs12 = document.querySelectorAll(".div-12");
+
+
+function t12() {
+  divs12.forEach(elem => {
+    elem.style.background = "orange"
+  })
+}
 
 document.querySelector(".b-12").onclick = t12;
 
 //  Task 13
 // С помощью цикла присвойте всем input .i-13 value равное 1 для первого, 2 для второго и 3 для третьего.
 
-function t13() {}
+let divs13 = document.querySelectorAll(".div-13");
+
+function t13() {
+divs13.forEach(item => {
+  item.value
+})
+}
 
 document.querySelector(".b-13").onclick = t13;
 
