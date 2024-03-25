@@ -241,12 +241,15 @@ document.querySelector(".b-12").onclick = t12;
 //  Task 13
 // С помощью цикла присвойте всем input .i-13 value равное 1 для первого, 2 для второго и 3 для третьего.
 
-let divs13 = document.querySelectorAll(".div-13");
+let divs13 = document.querySelectorAll(".i-13");
+
+let value = 1
 
 function t13() {
-divs13.forEach(item => {
-  item.value
-})
+for (let i = 0; i < divs13.length; i++) {
+  divs13[i].value = value
+  value++
+}
 }
 
 document.querySelector(".b-13").onclick = t13;
