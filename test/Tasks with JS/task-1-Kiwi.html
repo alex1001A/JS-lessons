@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Task 1
+
+      // const fruits = ["kiwi", "apple", "kiwi", "orange", "kiwi", "apple"];
+      // const fruitsCount = {};
+
+      // fruits.forEach((fruit) => {
+      //   if (!fruitsCount[fruit]) {
+      //     fruitsCount[fruit] = 1;
+      //   } else {
+      //     fruitsCount[fruit]++;
+      //   }
+      // });
+
+      //Task 2 Var 1
+
+      // const fruits = ['kiwi', 'apple', 'kiwi', 'orange', 'kiwi', 'apple'];
+      // const newObj = Array.from(new Set(fruits))
+
+      // console.log(newObj);
+
+      //Task 2 Var 2
+
+      // const fruits = ['kiwi', 'apple', 'kiwi', 'orange', 'kiwi', 'apple'];
+      // const newObj = {}
+
+      // fruits.forEach(fruit => {
+      //   newObj[fruit] = true
+      // })
+
+      // const uniqueArray = Object.keys(newObj);
+
+      // console.log(uniqueArray);
+
+      //Task 3
+
+      // const students = [
+      //   { name: "alex", age: 20 },
+      //   { name: "mike", age: 24 },
+      //   { name: "masha", age: 20 },
+      //   { name: "stas", age: 18 },
+      // ];
+
+      // const newObj = {}
+
+      // students.forEach(human => {
+      //   if (!newObj[human.age]) {
+      //     newObj[human.age] = [human]
+      //   } else {
+      //     newObj[human.age].push(human)
+      //   }
+      // })
+
+      // console.log(newObj);
+
+      //Task 4 Var 1
+
+      let date = new Date();
+
+      const hours = date.getHours() // Получаем текущие часы и форматируем их
+      const minutes = date.getMinutes()// Получаем текущие минуты и форматируем их
+      const seconds = date.getSeconds()
+
+      const currentTime = `${hours}:${minutes}:${seconds}`; // Соединяем часы, минуты и секунды в строку
+
+      console.log(currentTime);
+    </script>
+  </body>
+</html>
