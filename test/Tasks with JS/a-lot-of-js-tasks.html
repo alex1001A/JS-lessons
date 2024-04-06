@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        let link = 'https://code.mu/ru/javascript/tasker/stager/1/2/'
+
+        // Task 1
+        function isNegative(a) {
+            let num = a
+
+            if (num < 0) {
+                console.log('Negative');
+            } else if (num == 0) {
+                console.log('Null');
+            } else {
+                console.log('Positive');
+            }
+        }
+
+        // isNegative(-2)
+
+        // Task 2
+        function string(a) {
+            let string = `${a}`
+
+            console.log(string.length);
+        }
+
+        // string('lorem dopvnkwn wdivbwd')
+
+        // Task 3
+        function string(a) {
+            let string = `${a}`
+            const lastChar = string.slice()
+
+            console.log(lastChar);
+        }
+
+        // string('dvsvsdvsdfw')
+
+        // Task 4
+        function isEven(a) {
+            let num = a
+
+            if (num % 2 == 0) {
+                console.log('Even');
+            } else {
+                console.log('Odd');
+            }
+        }
+
+        // isEven(2)
+
+        // Task 5
+        function firstCharacter(a, b) {
+          let firstCharWord1 = a[0]
+          let firstCharWord2 = b[0]
+
+          if (firstCharWord1 === firstCharWord2) {
+            console.log('Success');
+          } else {
+            console.log('Fail');
+          }  
+
+        }
+
+        // firstCharacter('advwdv', 'advwvd')
+
+        // Task 6
+        function lastChar(a) {
+            let lastChar = a[a.length - 1]
+
+            if (lastChar === 'ь') {
+                console.log(a[a.length - 2]);
+            } else {
+                console.log(lastChar);
+            }
+        }
+
+        lastChar('ночь')
+    </script>
+</body>
+
+</html>
