@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let link = "https://code.mu/ru/javascript/tasker/stager/1/2/";
+
+      // Task 1
+
+      function random() {
+        let randomNumber = Math.floor(Math.random() * 101);
+        return randomNumber;
+      }
+
+      function randomNumArr() {
+        let arr1 = [];
+        for (let i = 0; i < 10; i++) {
+          arr1.push(random());
+        }
+        // console.log(arr1);
+      }
+
+      randomNumArr();
+
+      // Task 2
+
+      let a2 = 12345;
+      let b2 = a2.toString().split("").reverse();
+
+      b2.forEach((i) => {
+        // console.log(i);
+      });
+
+      // Task 3
+
+      let array = [1, 2, 3, 4, 5, 6];
+
+      for (let i = 0; i < array.length; i += 2) {
+        let subArray = array.slice(i, i + 2);
+        // console.log(subArray);
+      }
+
+      // Task 4
+
+      let arr1 = [1, 2, 3];
+      let arr2 = [4, 5, 6];
+
+      let newArr = arr1.concat(arr2);
+      console.log(newArr);
+    </script>
+  </body>
+</html>
