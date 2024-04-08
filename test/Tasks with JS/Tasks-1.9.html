@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let link = "https://code.mu/ru/javascript/tasker/stager/1/2/";
+
+      // Task 1
+
+      let stringsArray = [
+        "http://example.com",
+        "https://example.com",
+        "http://anotherexample.com",
+        "notalink",
+        "http://yetanotherexample.com",
+      ];
+
+      let httpArr = stringsArray.filter((item) => item.includes("http://"));
+      // console.log(httpArr);
+
+      // Task 2
+
+      let stringsHtml = [
+        "http://example.com",
+        "https://example.com",
+        "http://anotherexample.com",
+        "notalink.html",
+        "http://yetanotherexample.com",
+        "random.html",
+        "page.html",
+        "picture.jpg",
+      ];
+
+      let htmlArr = stringsHtml.filter((item) => item.endsWith(".html"));
+      
+      // console.log(htmlArr);
+
+      // Task 3
+
+      let numbersArray = [23, 45, 17, 92, 10, 55, 34, 87, 67, 98];
+
+      function tenPercent(a) {
+        let b = a * 1.1
+        return b
+      }
+
+      function t3() {
+        for (let i = 0; i < numbersArray.length; i++) {
+          numbersArray[i] = tenPercent(numbersArray[i])
+        }
+        
+        console.log(numbersArray);
+      }
+
+      t3()
+
+    </script>
+  </body>
+</html>

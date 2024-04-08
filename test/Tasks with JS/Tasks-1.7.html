@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let link = "https://code.mu/ru/javascript/tasker/stager/1/2/";
+
+      // Task 1
+      
+      function strToArr(a1) {
+        let strArr1 = Array.from(a1)
+        console.log(strArr1);
+      }
+
+      // strToArr('hi')
+
+      // Task 2
+
+      function t2(a2) {
+        let numArr = Array.from(a2.toString())
+        console.log(numArr);
+      }
+
+      // t2(12345)
+
+      // Task 3
+
+      function t3(a3) {
+        let b3 = a3.toString()
+        let c3 =  b3.split('') //.reverse().join()
+        let d3 = c3.reverse()
+        let e3 = d3.join('')
+        console.log(e3);
+      }
+
+      // t3(12345)
+
+      // Task 4
+
+      let sum4 = 0
+
+      function t4(a4) {
+        let b4 = a4.toString()
+        let c4 = b4.split('')
+        for (let i = 0; i < c4.length; i++) {
+          sum4 += +c4[i]
+        }
+        console.log(sum4);
+        
+      }
+
+      t4(2583)
+
+    </script>
+  </body>
+</html>
