@@ -1,139 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
 
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
+      button {
+        width: 30px;
+        padding: 10px;
+      }
+    </style>
+  </head>
 
-    button {
-      width: 30px;
-      padding: 10px;
-    }
-  </style>
-</head>
+  <body>
+    <div class="out-fruits"></div>
 
-<body>
-  <div class="out-fruits"></div>
+    <script>
+      // 1. Поиск максимального числа в массиве:
+      // Напишите функцию, которая принимает массив чисел и возвращает максимальное число из этого массива.
 
-  <script>
-    // 1. Поиск максимального числа в массиве:
-    // Напишите функцию, которая принимает массив чисел и возвращает максимальное число из этого массива.
+      numbers = [1, 4, 65, 32, 8, 114, 43, 82, 22];
 
-    numbers = [1, 4, 65, 32, 8, 114, 43, 82, 22];
+      function getMaxNumber(arr) {
+        let maxNumber = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] > maxNumber) {
+            maxNumber = arr[i];
+          }
+        }
+        return maxNumber;
+      }
 
-    function getMaxNumber(arr) {
-      let maxNumber = arr[0];
-      for (let i = 0; i < arr.length; i++) {
+      // console.log(getMaxNumber(numbers));
 
-        if (arr[i] > maxNumber) {
-          maxNumber = arr[i];
+      // 2. Подсчет количества гласных в строке:
+      // Напишите функцию, которая принимает строку и возвращает количество гласных букв (a, e, i, o, u) в этой строке.
+
+      const vowels = ["a", "e", "i", "o", "u"];
+
+      function getVovel(string) {
+        let vovelsQty = 0;
+        let strArr = string.toLowerCase().split("");
+        let strArr1 = strArr.filter((char) => {
+          if (char !== " ") {
+            return char;
+          }
+        });
+
+        for (let i = 0; i < strArr.length; i++) {
+          if (vowels.includes(strArr[i])) {
+            vovelsQty++;
+          }
+        }
+        let a = "quantity of vovels: " + vovelsQty;
+        return a;
+      }
+
+      // console.log(getVovel('My name is sasha'));
+
+      // 3. Проверка на палиндром:
+      // Напишите функцию, которая принимает строку и возвращает true, если строка является палиндромом (читается одинаково как слева направо, так и справа налево), и false в противном случае.
+
+      function isPalindrom(str) {
+        let string = str.toLowerCase().split("").reverse().join("");
+        if (str === string) {
+          console.log(true);
+        } else {
+          console.log(false);
         }
       }
-      return maxNumber;
-    }
 
-    // console.log(getMaxNumber(numbers));
+      // isPalindrom('tenet')
 
-    // 2. Подсчет количества гласных в строке:
-    // Напишите функцию, которая принимает строку и возвращает количество гласных букв (a, e, i, o, u) в этой строке.
+      // 4. Сортировка массива чисел:
+      // Напишите функцию, которая принимает массив чисел и возвращает новый массив, содержащий те же числа, но отсортированные в порядке возрастания (или убывания).
+      const numbers4 = [5, 2, 8, 1, 9];
 
-    const vowels = ['a', 'e', 'i', 'o', 'u']
+      function sortAscending(arr) {
+        return arr.slice().sort((a, b) => a - b);
+      }
 
-    function getVovel(string) {
-      let vovelsQty = 0
-      let strArr = string.toLowerCase().split('')
-      let strArr1 = strArr.filter(char => {
-        if (char !== ' ') {
-          return char
+      console.log(sortAscending(numbers4)); 
+
+      // 5. Генерация случайного пароля:
+      // Напишите функцию, которая генерирует случайный пароль заданной длины. Пароль должен содержать буквы верхнего и нижнего регистра, цифры и специальные символы.
+
+      // 6. Поиск уникальных элементов в массиве:
+      // Напишите функцию, которая принимает массив и возвращает новый массив, содержащий только уникальные элементы из исходного массива (без повторений).
+
+      const fromFn6 = [
+        "kiwi",
+        "apple",
+        "Vlad",
+        "Richie",
+        "watermelon",
+        "dog",
+        "apple",
+        "kiwi",
+        "kiwi",
+        "Richie",
+      ];
+
+      function getUniqueValuesArray() {
+        const uniqArr = new Set(fromFn6);
+
+        const uniqArrfromFn6 = Array.from(uniqArr);
+
+        console.log(uniqArrfromFn6);
+      }
+
+      // getUniqueValuesArray()
+
+      // 7. Развернуть строку:
+      // Напишите функцию, которая принимает строку и возвращает эту же строку, но символы расположены в обратном порядке.
+
+      function reverseString(str) {
+        let string = str.split("").reverse().join("");
+        console.log(string);
+      }
+
+      // reverseString('Alex')
+
+      // 8. Проверка на простое число:
+      // Напишите функцию, которая принимает число и возвращает true, если число является простым, и false в противном случае.
+
+      function isSimpleNum(num) {
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i === 0) {
+            return false;
+          }
         }
-      })
-
-      for (let i = 0; i < strArr.length; i++) {
-
-        if (vowels.includes(strArr[i])) {
-          vovelsQty++
-        }
-
+        return true;
       }
-      let a = 'quantity of vovels: ' + vovelsQty
-      return a
-    }
 
-    // console.log(getVovel('My name is sasha')); 
+      console.log(isSimpleNum(4));
 
-    // 3. Проверка на палиндром:
-    // Напишите функцию, которая принимает строку и возвращает true, если строка является палиндромом (читается одинаково как слева направо, так и справа налево), и false в противном случае.
-
-    function isPalindrom(str) {
-      let string = str.toLowerCase().split('').reverse().join('')
-      if (str === string) {
-        console.log(true);
-      } else {
-        console.log(false);
-      }
-    }
-
-    // isPalindrom('tenet')
-
-    // 4. Сортировка массива чисел:
-    // Напишите функцию, которая принимает массив чисел и возвращает новый массив, содержащий те же числа, но отсортированные в порядке возрастания (или убывания).
-
-
-
-    // 5. Генерация случайного пароля:
-    // Напишите функцию, которая генерирует случайный пароль заданной длины. Пароль должен содержать буквы верхнего и нижнего регистра, цифры и специальные символы.
-
-
-    
-    // 6. Поиск уникальных элементов в массиве:
-    // Напишите функцию, которая принимает массив и возвращает новый массив, содержащий только уникальные элементы из исходного массива (без повторений).
-
-    const fromFn6 = ['kiwi', 'apple', 'Vlad', 'Richie', 'watermelon', 'dog', 'apple', 'kiwi', 'kiwi', 'Richie']
-
-    function getUniqueValuesArray() {
-      const uniqArr = new Set(fromFn6)
-
-      const uniqArrfromFn6 = Array.from(uniqArr)
-      
-      console.log(uniqArrfromFn6);
-    }
-
-    // getUniqueValuesArray()
-
-    // 7. Развернуть строку:
-    // Напишите функцию, которая принимает строку и возвращает эту же строку, но символы расположены в обратном порядке.
-
-    function reverseString(str) {
-      let string = str.split('').reverse().join('')
-      console.log(string);
-    }
-
-    reverseString('Alex')
-
-    // 8. Проверка на простое число:
-    // Напишите функцию, которая принимает число и возвращает true, если число является простым, и false в противном случае.
-
-    function isSimpleNum(num) {
-      if (num % num === 0 && num % 2 === 0) {
-        return true
-      } else {
-        return false
-      }
-    }
-
-    console.log(isSimpleNum(4)); 
-
-    // 9. Конвертация температуры:
-    // Напишите функции для конвертации температуры из градусов Цельсия в градусы Фаренгейта и наоборот.
-  </script>
-</body>
-
+      console.log(Math.sqrt(6));
+      // 9. Конвертация температуры:
+      // Напишите функции для конвертации температуры из градусов Цельсия в градусы Фаренгейта и наоборот.
+    </script>
+  </body>
 </html>
