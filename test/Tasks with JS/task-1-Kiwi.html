@@ -20,6 +20,8 @@
       //   }
       // });
 
+      // console.log(fruitsCount);
+
       //Task 2 Var 1
 
       // const fruits = ['kiwi', 'apple', 'kiwi', 'orange', 'kiwi', 'apple'];
@@ -42,24 +44,24 @@
 
       //Task 3
 
-      // const students = [
-      //   { name: "alex", age: 20 },
-      //   { name: "mike", age: 24 },
-      //   { name: "masha", age: 20 },
-      //   { name: "stas", age: 18 },
-      // ];
+      const students = [
+        { name: "alex", age: 20 },
+        { name: "mike", age: 24 },
+        { name: "masha", age: 20 },
+        { name: "stas", age: 18 },
+      ];
 
-      // const newObj = {}
+      const newObj = {}
 
-      // students.forEach(human => {
-      //   if (!newObj[human.age]) {
-      //     newObj[human.age] = [human]
-      //   } else {
-      //     newObj[human.age].push(human)
-      //   }
-      // })
+      students.forEach(human => {
+        if (!newObj[human.age]) {
+          newObj[human.age] = [human]
+        } else {
+          newObj[human.age].push(human)
+        }
+      })
 
-      // console.log(newObj);
+      console.log(newObj);
 
       //Task 4 Var 1
 
@@ -68,6 +70,7 @@
       // const hours = date.getHours() // Получаем текущие часы и форматируем их
       // const minutes = date.getMinutes()// Получаем текущие минуты и форматируем их
       // const seconds = date.getSeconds()
+<<<<<<< HEAD
 
       // const currentTime = `${hours}:${minutes}:${seconds}`; // Соединяем часы, минуты и секунды в строку
 
@@ -113,6 +116,12 @@
       console.log(getNum(4, 4)); 
 
 
+=======
+
+      // const currentTime = `${hours}:${minutes}:${seconds}`; // Соединяем часы, минуты и секунды в строку
+
+      // console.log(currentTime);
+>>>>>>> e41fb9cefd010f346575e94ce5e34c06e9dcc16a
     </script>
   </body>
 </html>
