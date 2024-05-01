@@ -63,15 +63,56 @@
 
       //Task 4 Var 1
 
-      let date = new Date();
+      // let date = new Date();
 
-      const hours = date.getHours() // Получаем текущие часы и форматируем их
-      const minutes = date.getMinutes()// Получаем текущие минуты и форматируем их
-      const seconds = date.getSeconds()
+      // const hours = date.getHours() // Получаем текущие часы и форматируем их
+      // const minutes = date.getMinutes()// Получаем текущие минуты и форматируем их
+      // const seconds = date.getSeconds()
 
-      const currentTime = `${hours}:${minutes}:${seconds}`; // Соединяем часы, минуты и секунды в строку
+      // const currentTime = `${hours}:${minutes}:${seconds}`; // Соединяем часы, минуты и секунды в строку
 
-      console.log(currentTime);
+      // console.log(currentTime);
+
+      //Написать функцию, получающую на вход два числа
+      //Если оба числа чётные - ф-ия возвращает их произведение
+      //Если оба числа нечётные - ф-ия возвращает их сумму
+      //Если одно из чисел чётное, а второе нечётное 
+      //функция возвращает это нечетное число
+
+      //even - четное
+      //odd - нечетное
+
+      // function getNum(a, b) {
+      //   // const c = 0
+      //   if (a % 2 == 0 && b % 2 == 0) {
+      //     console.log(a * b); 
+      //   } else if (a % 2 !== 0 && b % 2 !== 0) {
+      //     console.log(a + b);
+      //   } else if (a % 2 == 0 && b % 2 !== 0) {
+      //     console.log(b);
+      //   } else if (b % 2 == 0 && a % 2 !== 0) {
+      //     console.log(a);
+      //   }
+      // }
+
+      // getNum(3, 5)
+
+      function getNum(a, b) {
+      
+        if (a % 2 == 0 && b % 2 == 0) {
+          return a * b
+        } else if (a % 2 !== 0 && b % 2 !== 0) {
+          return a + b
+        } else if (a % 2 == 0 && b % 2 !== 0) {
+          return b
+        } else if (b % 2 == 0 && a % 2 !== 0) {
+          return a
+        }
+      }
+
+      console.log(getNum(4, 4)); 
+
+
     </script>
   </body>
 </html>
