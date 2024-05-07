@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let link = "https://code.mu/ru/javascript/tasker/stager/1/2/";
+
+      // Task 1
+      const numbers = [-5, 4, -7, -2, -9, 3, -1, -6, -8, 5];
+      let qtyOfNegatives = 0;
+
+      numbers.forEach((i) => {
+        if (i < 0) {
+          qtyOfNegatives++;
+        }
+        return qtyOfNegatives;
+      });
+
+      // console.log(qtyOfNegatives);
+
+      // Task 2
+      //Дан массив с числами. Оставьте в нем только положительные числа.
+
+      const numbers1 = [...numbers].filter((i) => i > 0 )
+
+      // console.log(numbers1);
+
+      // Task 3
+      //Дана строка. Удалите предпоследний символ из этой строки.
+      const str = 'Alexander'
+      const newStr = str.slice(str.length - 2, str.length - 1)
+      // console.log(newStr);
+
+      // Task 4
+      //Дан некоторый массив, например, вот такой:
+      const arr = [1, 2, 3, 4, 5, 6]
+      //Поделите сумму первой половины элементов этого массива на сумму второй половины элементов.
+
+      const firstArrPart = arr.slice(0, 3)
+      const secondArrPart = arr.slice(3)
+
+      function sumNum(array) {
+        let num = 0
+        for (let i = 0; i < array.length; i++) {
+          num += array[i]
+        }
+        return num
+      }
+
+      // console.log(sumNum(firstArrPart) / sumNum(secondArrPart));
+    </script>
+  </body>
+</html>
