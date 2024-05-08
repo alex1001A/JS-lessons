@@ -14,23 +14,50 @@
       //Даны два слова. Проверьте, что последняя буква первого слова совпадает с первой буквой второго слова.
 
       function compareWords(str1, str2) {
-        const newStr1 = str1.slice(-1).toLowerCase()
-        const newStr2 = str2.slice(0, 1).toLowerCase()
+        const newStr1 = str1.slice(-1).toLowerCase();
+        const newStr2 = str2.slice(0, 1).toLowerCase();
 
-        console.log(newStr1 === newStr2);
+        // console.log(newStr1 === newStr2);
       }
 
-      compareWords('string', 'geometry')
+      compareWords("string", "geometry");
 
       // Task 2
       //Дана некоторая строка. Найдите позицию третьего нуля в строке.
+      // const str = "fev0efvefk0evfefvl0";
 
-      
+      function findThirdZeroIndex(str) {
+        let zero = 0;
+
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] === "0") {
+            zero++;
+            if (zero === 3) {
+              return i;
+            }
+          }
+        }
+        return "Тут меньше трех нулей";
+      }
+
+      // console.log(findThirdZeroIndex('fev0efvefk0evfe0fvl'));
 
       // Task 3
-      
+      // Даны числа, разделенные запятыми:
+      // '12,34,56'
+      // Найдите сумму этих чисел.
+
+      let str3 = '12,34,56'
+      let arr3 = str3.split(',')
+
+      let sum = 0
+      arr3.forEach(i => {
+        sum += +i
+      })
+
+      console.log('Sum of the numbers: ' + sum);
+
       // Task 4
-      
     </script>
   </body>
 </html>
