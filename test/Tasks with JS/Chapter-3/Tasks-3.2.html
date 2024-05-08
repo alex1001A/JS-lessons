@@ -47,17 +47,46 @@
       // '12,34,56'
       // Найдите сумму этих чисел.
 
-      let str3 = '12,34,56'
-      let arr3 = str3.split(',')
+      let str3 = "12,34,56";
+      let arr3 = str3.split(",");
 
-      let sum = 0
-      arr3.forEach(i => {
-        sum += +i
-      })
+      let sum = 0;
+      arr3.forEach((i) => {
+        sum += +i;
+      });
 
-      console.log('Sum of the numbers: ' + sum);
+      // console.log("Sum of the numbers: " + sum);
 
       // Task 4
+
+      //'2025-12-31'
+      //Преобразуйте эту дату в следующий объект:
+
+      // {
+      // 	year: '2025',
+      // 	month: '12',
+      // 	day: '31',
+      // }
+
+      let obj4 = {};
+      let str = "2025-12-31";
+      let arr4 = str.split("-");
+
+      function object(array) {
+        const keys = ["year", "month", "day"];
+
+        for (let i = 0; i < array.length; i++) {
+          if (!obj4[keys[i]]) {
+            // Проверяем наличие свойства с именем keys[i]
+            keys.forEach((key, i) => {
+              obj4[key] = array[i];
+            });
+          }
+        }
+        return obj4;
+      }
+
+      // console.log(object(arr4));
     </script>
   </body>
 </html>
