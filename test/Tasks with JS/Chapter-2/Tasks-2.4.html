@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let link = "https://code.mu/ru/javascript/tasker/stager/2/4/";
+
+      // Task 1
+      //Дана некоторая строка с буквами и цифрами.
+      //Получите позицию первой цифры в этой строке.
+      const str = "wdvw678wrvw23fb";
+      function findFirstDigitPosition(str) {
+        const digitIndex = str.search(/\d/); // Ищем первую цифру в строке
+        return digitIndex;
+      }
+      const position = findFirstDigitPosition(str);
+      // console.log("Position of the first digit:", position);
+
+      // Task 2
+      //Дан объект с ключами и значениями.
+      //Запишите в первый массив ключи объекта, а во второй - значения.
+      const myObject = {
+        name: "John",
+        age: 30,
+        city: "New York",
+        country: "USA",
+        profession: "Engineer",
+      };
+
+      const keysArr = Object.keys(myObject);
+      const valuesArr = Object.values(myObject);
+
+      console.log(keysArr);
+      console.log(valuesArr);
+
+      // Task 3
+      //Дано число.
+      //Выведите в консоль количество четных цифр в этом числе.
+
+      const number = 134132087423;
+
+      const evenNums = (num) => {
+        let qty = 0;
+
+        const digitsArr = num.toString().split("");
+
+        digitsArr.forEach((i) => {
+          if (i > 0 && i % 2 === 0) {
+            qty++;
+          }
+        });
+        return qty;
+      };
+
+      // console.log(evenNums(number));
+
+      // Task 4
+      //Дана некоторая строка:
+      let str4 = "abcde";
+      let newArr4 = str4.split("");
+      //Переведите в верхний регистр все нечетные буквы этой строки.
+
+      function toUpperCase(srting) {
+        let upperCaseArr = srting.map((value, index) => {
+          if (index % 2 === 0) {
+            return value.toUpperCase();
+          }
+          return value;
+        });
+        return upperCaseArr.join("");
+      }
+
+      console.log(toUpperCase(newArr4));
+
+      // Task 5
+      //Дана некоторая строка со словами:
+      let str5 = "aaa bbb ccc";
+      //Сделайте заглавным первый символ каждого слова в этой строке.
+      //В нашем случае должно получится следующее: 'Aaa Bbb Ccc'
+
+      let newStr5 = str5.split("");
+
+      for (let i = 0; i < newStr5.length; i++) {
+        if (i === i + 4) {
+          return newStr5[i].toUpperCase()
+        }
+        return newStr5[i]
+      }
+
+      console.log(newStr5);
+    </script>
+  </body>
+</html>
