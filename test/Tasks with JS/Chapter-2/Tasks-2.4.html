@@ -35,8 +35,8 @@
       const keysArr = Object.keys(myObject);
       const valuesArr = Object.values(myObject);
 
-      console.log(keysArr);
-      console.log(valuesArr);
+      // console.log(keysArr);
+      // console.log(valuesArr);
 
       // Task 3
       //Дано число.
@@ -75,7 +75,7 @@
         return upperCaseArr.join("");
       }
 
-      console.log(toUpperCase(newArr4));
+      // console.log(toUpperCase(newArr4));
 
       // Task 5
       //Дана некоторая строка со словами:
@@ -84,15 +84,19 @@
       //В нашем случае должно получится следующее: 'Aaa Bbb Ccc'
 
       let newStr5 = str5.split("");
+      
 
-      for (let i = 0; i < newStr5.length; i++) {
-        if (i === i + 4) {
-          return newStr5[i].toUpperCase()
-        }
-        return newStr5[i]
+      function firstLetterUppercase(array) {
+        let arr5 = array.map((value, index) => {
+          if (index % 4 === 0) {
+            return value.toUpperCase()
+          }
+          return value
+        })
+        return arr5
       }
 
-      console.log(newStr5);
+      console.log(firstLetterUppercase(newStr5));
     </script>
   </body>
 </html>

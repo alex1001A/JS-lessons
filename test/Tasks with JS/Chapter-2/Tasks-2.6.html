@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let link = "https://code.mu/ru/javascript/tasker/stager/2/4/";
+
+      // Task 1
+      //Дана некоторая строка с буквами и цифрами.
+      //Получите массив позиций всех цифр из этой строки.
+      const str1 = "iwbvojuwuv34b2bj3bvhi42v54vo34p5";
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+      function getAllNumberPosition(string) {
+        const numbersArr = [];
+        for (let i = 0; i < string.length; i++) {
+          const char = string[i];
+          if (!isNaN(parseInt(char))) {
+            // Проверяем, является ли текущий символ цифрой
+            numbersArr.push(i); // Если да, добавляем его индекс в массив
+          }
+        }
+        return numbersArr;
+      }
+
+      // console.log(getAllNumberPosition(str1));
+
+      // Task 2
+      //Дан массив с некоторыми числами, например, вот такой:
+      const arr2 = [123, 456, 789];
+      //Напишите код, который перевернет числа в этом массиве по следующему принципу:
+      //[321, 654, 987]
+
+      function reverseArrayElements(array) {
+        const newArr = array.map((item, index) => {
+          const newItem = item.toString().split('').reverse().join('')
+          return newItem
+        })
+        return newArr
+      }
+
+      console.log(reverseArrayElements(arr2)); 
+
+      // Task 3
+      //Дана некоторая строка с числом:
+
+
+    </script>
+  </body>
+</html>
