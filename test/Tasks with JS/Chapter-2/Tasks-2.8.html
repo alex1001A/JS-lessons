@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let link = "https://code.mu/ru/javascript/tasker/stager/2/4/";
+
+      // Task 1
+      //Дана строка с буквами.
+      const str1 = "jkFjnvownonXoneivfGGKN";
+      //Проверьте, что в этой строке не более двух заглавных букв.
+
+      function fn1(str) {
+        let upperCount = 0;
+
+        str.split("").forEach((i) => {
+          if (i === i.toUpperCase()) {
+            upperCount++;
+          }
+          return upperCount;
+        });
+
+        if (upperCount >= 3) {
+          return "Больше двух";
+        }
+
+        return "Две и меньше";
+      }
+
+      // console.log(fn1(str1));
+
+      // Task 2
+      //Дана некоторая строка:
+      const str2 = "1 22 333 4444 22 5555 1";
+
+      //Удалите из этой строки все подстроки, в которых количество символов больше трех.
+      //В нашем случае должно получится следующее: '1 22 333 22 1'
+
+      function fn2(str) {
+        const newStr = str.split(" ").filter((i) => i.length <= 3);
+        return newStr.join(" ");
+      }
+
+      // console.log(fn2(str2));
+
+      // Task 3
+      //Даны два массива:
+
+      let arr1 = [1, 2, 3]
+      let newArr1 = arr1.slice(this.length, 2)
+      let lastChar = arr1.slice(this.length - 1)
+      let arr2 = ["a", "b", "c"]
+      //Слейте эти массивы в новый массив следующим образом: [1, 2, 'a', 'b', 'c', 3]
+      
+      function fn3() {
+        const newArr = newArr1.concat(arr2).concat(lastChar)
+
+        return newArr
+      }
+      
+
+      console.log(fn3());
+
+    </script>
+  </body>
+</html>
