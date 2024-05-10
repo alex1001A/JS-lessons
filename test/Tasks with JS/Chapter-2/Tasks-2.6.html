@@ -1,55 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <script>
-      let link = "https://code.mu/ru/javascript/tasker/stager/2/4/";
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-      // Task 1
-      //Дана некоторая строка с буквами и цифрами.
-      //Получите массив позиций всех цифр из этой строки.
-      const str1 = "iwbvojuwuv34b2bj3bvhi42v54vo34p5";
-      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+<body>
+  <script>
+    let link = "https://code.mu/ru/javascript/tasker/stager/2/4/";
 
-      function getAllNumberPosition(string) {
-        const numbersArr = [];
-        for (let i = 0; i < string.length; i++) {
-          const char = string[i];
-          if (!isNaN(parseInt(char))) {
-            // Проверяем, является ли текущий символ цифрой
-            numbersArr.push(i); // Если да, добавляем его индекс в массив
-          }
+    // Task 1
+    //Дана некоторая строка с буквами и цифрами.
+    //Получите массив позиций всех цифр из этой строки.
+    const str1 = "iwbvojuwuv34b2bj3bvhi42v54vo34p5";
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+    function getAllNumberPosition(string) {
+      const numbersArr = [];
+      for (let i = 0; i < string.length; i++) {
+        const char = string[i];
+        if (!isNaN(parseInt(char))) {
+          // Проверяем, является ли текущий символ цифрой
+          numbersArr.push(i); // Если да, добавляем его индекс в массив
         }
-        return numbersArr;
+      }
+      return numbersArr;
+    }
+
+    // console.log(getAllNumberPosition(str1));
+
+    // Task 2
+    //Дан массив с некоторыми числами, например, вот такой:
+    const arr2 = [123, 456, 789];
+    //Напишите код, который перевернет числа в этом массиве по следующему принципу:
+    //[321, 654, 987]
+
+    function reverseArrayElements(array) {
+      const newArr = array.map((item, index) => {
+        const newItem = item.toString().split('').reverse().join('')
+        return newItem
+      })
+      return newArr
+    }
+
+    // console.log(reverseArrayElements(arr2)); 
+
+    // Task 3
+    //Дана некоторая строка с числом:
+    const str3 = '1234567'
+
+    //Отделите тройки цифр пробелами, начиная с конца числа. 
+    //В нашем случае должно получится следующее: '1 234 567'
+    function divideString(string) {
+      let result = '';
+      let count = 0;
+
+      for (let i = string.length - 1; i >= 0; i--) {
+        result = string[i] + result;
+        count++;
+        if (count === 3 && i !== 0) {
+          result = ' ' + result;
+          count = 0;
+        }
       }
 
-      // console.log(getAllNumberPosition(str1));
+      return result;
+    }
 
-      // Task 2
-      //Дан массив с некоторыми числами, например, вот такой:
-      const arr2 = [123, 456, 789];
-      //Напишите код, который перевернет числа в этом массиве по следующему принципу:
-      //[321, 654, 987]
+    // console.log(divideString(str3));
 
-      function reverseArrayElements(array) {
-        const newArr = array.map((item, index) => {
-          const newItem = item.toString().split('').reverse().join('')
-          return newItem
-        })
-        return newArr
+    // Task 4
+    //Дана некоторая строка:
+    const str4 = 'AbCdE'
+    //Смените регистр букв этой строки на противоположный. 
+    //В нашем случае должно получится следующее: 'aBcDe'
+
+    function reverseCase(string) {
+      let arr4 = string.split('').map(i => {
+        if (i === i.toUpperCase()) {
+          return i.toLowerCase()
+        } else if (i === i.toLowerCase()) {
+          return i.toUpperCase()
+        }
+      })
+      return arr4.join('')
+    }
+
+    // console.log(reverseCase(str4)); 
+
+    // Task 5
+    //Дан некоторый массив с числами, например, вот такой:
+    const arr5 = [1, 2, 3, 4, 5, 6]
+    //Слейте пары элементов вместе: [12, 34, 56]
+
+    const newArr5 = arr5.filter(i => {
+      let char = null
+      if (i % 2 !== 0) {
+        
+        return i
       }
+    }).map(i => {
+      i = `${i}${i + 1}`
+      return i
+    })
 
-      console.log(reverseArrayElements(arr2)); 
+    // console.log(newArr5);
 
-      // Task 3
-      //Дана некоторая строка с числом:
+    // Task 6
+    //Дана некоторая строка со словами:
+    const str6 = 'aaa bbb ccc eee fff'
 
+    //Сделайте заглавным первый символ каждого второго слова в этой строке. 
+    //В нашем случае должно получится следующее: 'aaa Bbb ccc Eee fff'
 
-    </script>
-  </body>
+    function capitalizeFirstCharOfEverySecondWord(string) {
+      let strArr5 = string.split(' ')
+      for (let i = 0; i < strArr5.length; i++) {
+        if (i % 2 !== 0) {
+          strArr5[i] = strArr5[i].charAt(0).toUpperCase() + strArr5[i].slice(1)
+        } 
+        
+      }
+      return strArr5.join(' ')
+    }
+
+// console.log(capitalizeFirstCharOfEverySecondWord(str6));
+
+  </script>
+</body>
+
 </html>

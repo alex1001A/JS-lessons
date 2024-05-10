@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let link = "https://code.mu/ru/javascript/tasker/stager/2/4/";
+
+    // Task 1
+    //Дана некоторая строка:
+    const str1 = 'a bc def ghij'
+
+    //Переведите в верхний регистр все подстроки, в которых количество букв меньше или равно трем. 
+    //В нашем случае должно получится следующее: 'A BC DEF ghij'
+
+    function toLowerCaseIfLessThanThreeChars(string) {
+      let newStr1 = string.split(' ').map(i => {
+        if (i.length <= 3) {
+          i = i.toUpperCase()
+        }
+        return i
+      })
+      return newStr1.join(' ')
+    }
+
+    console.log(toLowerCaseIfLessThanThreeChars(str1));
+
+    // Task 2
+    //Дан символ. 
+    //Узнайте, в каком регистре этот символ - в верхнем или нижнем.
+
+    function whatRigisterOfChar(string) {
+      if (!isNaN(string) || string.length !== 1) {
+        return 'Это не символ или это целое слово';
+      }
+      if (string === string.toUpperCase()) {
+        return 'Символ в верхнем регистре'
+      }
+      return 'Символ в нижнем регистре'
+    }
+
+    // console.log(whatRigisterOfChar('f'));
+
+
+    // Task 3
+    //Дано некоторое число, например, такое:
+
+    const num = 123789
+    //Удалите из этого числа все нечетные цифры. 
+    //В нашем случае получится такой результат: 28
+    
+    function deleteOddNumbers(number) {
+      const newNum = number.toString().split('').filter(i => {
+        if (i % 2 === 0) {
+          return i
+        }
+      })
+      return newNum.join('')
+    }
+
+console.log(deleteOddNumbers(num));
+
+  </script>
+</body>
+
+</html>
