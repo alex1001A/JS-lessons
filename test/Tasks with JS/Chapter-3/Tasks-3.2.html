@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let link = "https://code.mu/ru/javascript/tasker/stager/3/2/";
+
+    // Task 1
+    //Выведите в консоль все числа в промежутке от 10 до 1000, 
+    //у которых предпоследняя цифра четная.
+
+    function getNum() {
+      let count = 0
+
+      for (let i = 10; i <= 1000; i++) {
+        let num = i.toString()
+
+        if (num.charAt(num.length - 2) % 2 === 0 && num.charAt(num.length - 2) !== '0') {
+          console.log(num);
+          count++
+        }
+      }
+      console.log(count);
+    }
+
+    // Task 2
+
+    //Дан массив. Удалите из него каждый пятый элемент.
+
+    const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+    function deleteEveryFifthEl(array) {
+      const newArr2 = array.filter((el, index) => {
+        return (index + 1) % 5 !== 0; // Оставляем элементы, индексы которых не кратны 5
+      });
+
+      return newArr2; // Возвращаем новый массив без каждого пятого элемента
+    }
+
+    // console.log(deleteEveryFifthEl(arr2));
+
+    // Task 3
+    //Дана некоторая переменная с числом:
+    let num3 = 5;
+    let srt3 = ''
+    //Сделайте строку, содержащую столько нулей, сколько указано в переменной. 
+    //В нашем случае получится такая строка: '00000'
+
+    for (let i = 0; i < num3; i++) {
+      srt3 += '0'
+    }
+
+    // console.log(srt3);
+
+    // Task 4
+    //Дана некоторая строка со словами:
+    const str4 = 'aaa bbb ccc eee fff'
+    //Удалите из этой строки каждое второе слово. 
+    //В нашем случае должно получится следующее: 'aaa ccc fff'
+
+    function deleteEverySecondEl(string) {
+      let newStr4 = string.split(' ').filter((el, index) => {
+        // Оставляем элементы, у которых индекс нечетный
+        return (index + 1) % 2 !== 0;
+      });
+
+      return newStr4.join(' '); // Преобразуем массив обратно в строку и возвращаем
+    }
+
+    // console.log(deleteEverySecondEl(str4));
+
+    // Task 5
+    //Дан массив:
+    const arr5 = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+    ]
+    //Найдите сумму элементов этого массива.
+    let count = 0
+
+    const newArr5 = arr5.forEach(element => {
+      element.forEach(i => {
+        count += i
+      })
+    })
+
+
+    console.log(count);
+
+
+  </script>
+</body>
+
+</html>
