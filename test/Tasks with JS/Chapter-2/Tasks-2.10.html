@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let link = "https://code.mu/ru/javascript/tasker/stager/2/4/";
+
+    // Task 1
+    //Дана строка с буквами и цифрами. Проверьте, что в этой строке не более трех букв.
+
+    const str1 = '4634635sd'
+
+    function checkNotMoreThanTreeChars(string) {
+      let count = 0
+
+      for (let i = 0; i < string.length; i++) {
+        if (/[a-zA-Z]/.test(string[i])) {
+          count++
+
+        }
+      }
+      // return count
+      if (count === 0) {
+        return 'В строке нет букв';
+      }
+      if (count <= 3) {
+        return 'В строке меньше или 3 буквы'
+      }
+      return 'В строке больше 3 букв'
+    }
+
+    // console.log(checkNotMoreThanTreeChars(str1));
+
+    // Task 2
+    //Дано число. Получите первую четную цифру с конца этого числа.
+
+    const number1 = 124325346485785
+
+    function getFirstEvenNumFromTheEnd(number) {
+      const numberArr = number.toString().split('')
+
+      for (let i = numberArr.length - 1; i >= 0; i--) {
+        if (numberArr[i] % 2 === 0) {
+          return +numberArr[i]
+        }
+      }
+    }
+
+    // console.log(getFirstEvenNumFromTheEnd(number1));
+
+    // Task 3
+
+    //Дана некоторая строка:
+    const str3 = 'abcde abcde abcde'
+    //Замените в ней первый символ каждого слова на '!': '!bcde !bcde !bcde'
+
+    function replaceToSymbol(string) {
+      const newArr3 = string.split(' ')
+      console.log(newArr3);
+      for (let i = 0; i < newArr3.length; i++) {
+        newArr3[i] = '!' + newArr3[i].slice(1)
+      }
+      return newArr3.join(' ')
+    }
+
+    // console.log(replaceToSymbol(str3));
+
+    //Task 4
+    //Дан массив с числами:
+
+    const arr4 = [1, 2, 3, 3, 4, 5, 5, 6, 7, 8, 8]
+
+    //Проверьте, что в этом массиве есть два одинаковых элемента подряд.
+
+    for (let i = 0; i < arr4.length; i++) {
+      if (arr4[i] === arr4[i + 1]) {
+        console.log(arr4[i]); 
+      } 
+    }
+
+
+ 
+  </script>
+</body>
+
+</html>

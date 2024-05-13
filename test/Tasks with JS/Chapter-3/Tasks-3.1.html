@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let link = "https://code.mu/ru/javascript/tasker/stager/3/1/";
+
+    // Task 1
+    //Дано некоторое число. 
+    const number = 235346346
+    //Проверьте, что цифры этого числа расположены по возрастанию.
+
+    function isNumbrsSort(num) {
+      const numArr = num.toString()
+
+      for (let i = 0; i < numArr.length; i++) {
+        if (numArr[i] >= numArr[i + 1]) {
+          return false; // Если цифры не упорядочены по возрастанию, возвращаем false
+        }
+      }
+      return true;
+    }
+
+    console.log(isNumbrsSort(number));
+
+    // Task 2
+
+    //Дан массив:
+
+    let arr2 = [1, '', 2, 3, '', 5]
+    //Удалите из массива все пустые строки.
+
+    const newArr2 = arr2.filter(item => item !== '')
+    // console.log(newArr2);
+
+    // Task 3
+    //Дан массив:
+    const arr3 = [
+      [2, 1, 4, 3, 5],
+      [3, 5, 2, 4, 1],
+      [4, 3, 1, 5, 2],
+    ]
+
+    newArr3 = arr3.map(item => [...item].sort())
+
+    console.log(newArr3);
+
+    // Task 4
+    //Даны два массива:
+
+    let arr41 = [1, 2, 3];
+    let arr42 = [1, 2, 3, 4, 5];
+    //Удалите из большего массива лишние элементы с конца так, 
+    //чтобы длины массивов стали одинаковыми.
+
+    if (arr41.length > arr42.length) {
+      // Если arr1 больше, удаляем лишние элементы с конца
+      arr41 = arr41.slice(0, arr42.length);
+    } else if (arr42.length > arr41.length) {
+      // Если arr2 больше, удаляем лишние элементы с конца
+      arr42 = arr42.slice(0, arr41.length);
+    }
+
+    console.log(arr41); // [1, 2, 3]
+    console.log(arr42); // [1, 2, 3]
+
+  </script>
+</body>
+
+</html>
