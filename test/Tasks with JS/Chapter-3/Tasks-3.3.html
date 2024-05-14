@@ -11,6 +11,33 @@
   <script>
     let link = "https://code.mu/ru/javascript/tasker/stager/3/2/";
 
+    const person = {
+      name: 'Alex', 
+      age: 26, 
+      greet: function () {
+        console.log('Greet!');
+      },
+      sayHello: hello
+    }
+
+    Object.prototype.sayHello = function() {
+      console.log('Hello')
+    }
+    
+    person.sayHello()
+
+const lena = Object.create(person)
+console.log(Object());
+
+console.log(lena);
+
+function hello() {
+  console.log('Hello', this);
+}
+
+person.sayHello
+hello()
+
     // Task 1
     
     // Task 2
